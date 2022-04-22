@@ -33,7 +33,7 @@ public class HomePage {
 
     public void clickAboutUs()
     {
-        // click about us button
+        // click the about us button
         driver.findElement(aboutUs).click();
     }
 
