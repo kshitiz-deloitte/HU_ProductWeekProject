@@ -24,7 +24,7 @@ public class BaseClass {
 
         System.setProperty(prop.getProperty("browser_type"), prop.getProperty("driver_path")); // setting driver location
         driver=new ChromeDriver();          // creating driver object
-        driver.get(prop.getProperty("url"));  // launch using link
+        driver.get("https://kycportal-urtjok3rza-wl.a.run.app/");  // launch using link
         driver.manage().window().maximize(); // maximize window
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }

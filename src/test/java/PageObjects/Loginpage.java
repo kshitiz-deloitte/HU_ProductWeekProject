@@ -12,8 +12,11 @@ public class Loginpage {
     static By userPassword = By.xpath("//input[@placeholder='Password']");
     static By userRole = By.xpath("//select[@name='user_type']");
     static By login = By.xpath("//button[@class='button-one']");
+
     static By rememberMe = By.xpath("//input[@type='checkbox']");
     static By signUp = By.xpath("//button[@class='text-button']");
+    public static By errorMessage = By.xpath("//p[@class='red']");
+    public static By dashboard = By.xpath("//div[@class='dashboard-header-middle']//p");
 
 
     // constructor to initialize driver
