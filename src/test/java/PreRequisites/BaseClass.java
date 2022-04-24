@@ -2,7 +2,7 @@ package PreRequisites;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.*;
 
 import java.io.FileInputStream;
 import java.time.Duration;
@@ -24,8 +24,10 @@ public class BaseClass {
 
         System.setProperty(prop.getProperty("browser_type"), prop.getProperty("driver_path")); // setting driver location
         driver=new ChromeDriver();          // creating driver object
-        driver.get("https://kycportal-urtjok3rza-wl.a.run.app/");  // launch using link
+        driver.get(prop.getProperty("url"));  // launch using link
         driver.manage().window().maximize(); // maximize window
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
+
+
 }
