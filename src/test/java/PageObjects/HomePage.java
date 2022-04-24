@@ -11,6 +11,7 @@ public class HomePage {
     static By aboutUs = By.xpath("(//a[@href='#aboutUs'])[1]");
     static By industries = By.xpath("(//a[@href='#clients'])[1]");
     static By login = By.xpath("//button[@class='btn login']");
+    static By organizationRegistration = By.xpath("//*[@id='top-home']/div[1]/div/button");
 
 
     // constructor to initialize driver
@@ -47,5 +48,9 @@ public class HomePage {
     {
         // click Industries button
         driver.findElement(login).click();
+    }
+
+    public void clickOrganizationRegistration(){
+        driver.findElement(organizationRegistration).click();
     }
 }
