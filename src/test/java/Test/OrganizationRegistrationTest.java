@@ -11,12 +11,12 @@ public class OrganizationRegistrationTest extends BaseClass {
 
     @Test(priority = 1)
     public void checkUrlIsOpeningOrNot(){
-        OpenDriver(prop.getProperty("url"));
+        OpenDriver(properties.getProperty("url"));
         driver.close();
     }
     @Test(priority = 2)
     public void checkRegistrationFailedSuggestion() throws Exception {
-        OpenDriver(prop.getProperty("organization_registration_url"));
+        OpenDriver(properties.getProperty("organization_registration_url"));
         organizationRegistrationPage= new OrganizationRegistrationPage(driver);
         Thread.sleep(2000);
         setOrganizationRegistrationDetails();
@@ -37,13 +37,13 @@ public class OrganizationRegistrationTest extends BaseClass {
 
 
     public void setOrganizationRegistrationDetails(){
-        organizationRegistrationPage.setCompanyName(prop.getProperty("company_name"));
-        organizationRegistrationPage.setCompanyPan(prop.getProperty("company_pan"));
-        organizationRegistrationPage.setCompanyGst(prop.getProperty("company_gst"));
-        organizationRegistrationPage.setIndustry(prop.getProperty("industry"));
-        organizationRegistrationPage.setContactEmail(prop.getProperty("contact_email"));
-        organizationRegistrationPage.setPassword(prop.getProperty("password"));
-        organizationRegistrationPage.setContactNumber(prop.getProperty("contact_number"));
-        organizationRegistrationPage.setAddress(prop.getProperty("address"));
+        organizationRegistrationPage.setCompanyName(properties.getProperty("company_name"));
+        organizationRegistrationPage.setCompanyPan(properties.getProperty("company_pan"));
+        organizationRegistrationPage.setCompanyGst(properties.getProperty("company_gst"));
+        organizationRegistrationPage.setIndustry(properties.getProperty("industry"));
+        organizationRegistrationPage.setContactEmail(properties.getProperty("contact_email"));
+        organizationRegistrationPage.setPassword(properties.getProperty("password"));
+        organizationRegistrationPage.setContactNumber(properties.getProperty("contact_number"));
+        organizationRegistrationPage.setAddress(properties.getProperty("address"));
     }
 }

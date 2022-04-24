@@ -15,7 +15,7 @@ public class OrganizationDashboardTest extends BaseClass {
 
     @Test(priority = 1)
     public void checkUrlIsOpeningOrNot(){
-        OpenDriver(prop.getProperty("url"));
+        OpenDriver(properties.getProperty("url"));
         homePage= new HomePage(driver);
         loginpage=new Loginpage(driver);
         organizationDashboardPage=new OrganizationDashboardPage(driver);
@@ -24,8 +24,8 @@ public class OrganizationDashboardTest extends BaseClass {
     @Test(priority = 2)
     public void checkOrganizationDashboardIsOpeningOrNot() throws InterruptedException {
         homePage.clickLogin();
-        loginpage.enterUsername(prop.getProperty("signin_company_name"));
-        loginpage.enterPassword(prop.getProperty("Signin_password"));
+        loginpage.enterUsername(properties.getProperty("signin_company_name"));
+        loginpage.enterPassword(properties.getProperty("signin_password"));
         loginpage.selectRole(role[2]);
         loginpage.clickLogin();
         Thread.sleep(2000);
@@ -35,7 +35,7 @@ public class OrganizationDashboardTest extends BaseClass {
     @Test(priority = 3)
     public void checkSearchingUserIsWorkingOrNot() throws InterruptedException {
         Thread.sleep(2000);
-        organizationDashboardPage.setSearchInput(prop.getProperty("search_key"));
+        organizationDashboardPage.setSearchInput(properties.getProperty("search_key"));
         organizationDashboardPage.clickSearch();
         Assert.assertEquals(organizationDashboardPage.numberOfUsersPerPage(), 1, "Search is Not Working Fine");
 
@@ -44,7 +44,7 @@ public class OrganizationDashboardTest extends BaseClass {
     public void checkSearchingUserWithChangeCaseIsWorkingOrNot() throws InterruptedException {
         Thread.sleep(2000);
         organizationDashboardPage.clearSearchInput();
-        organizationDashboardPage.setSearchInput(prop.getProperty("search_key_change_case"));
+        organizationDashboardPage.setSearchInput(properties.getProperty("search_key_change_case"));
         organizationDashboardPage.clickSearch();
         Assert.assertEquals(organizationDashboardPage.numberOfUsersPerPage(), 1, "Search is Not Working Fine");
     }
