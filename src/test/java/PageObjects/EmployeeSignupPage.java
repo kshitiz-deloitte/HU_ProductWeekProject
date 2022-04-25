@@ -8,7 +8,6 @@ import org.openqa.selenium.support.ui.Select;
 
 public class EmployeeSignupPage {
     WebDriver driver;
-
     // x paths for element in the page
 
     By username = By.xpath("//input[@placeholder='Enter a username']");

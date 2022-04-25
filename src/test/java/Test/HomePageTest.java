@@ -20,79 +20,45 @@ public class HomePageTest extends BaseClass {
     // Test to validate buttons functions in home page
     public void validateHomeButtons() throws Exception
     {
+        OpenDriver(properties.getProperty("url"));
         HomePage home = new HomePage(driver);
 
         // check home button functions by click the button and check respective url
         home.clickHome();
-        try {
-            Assert.assertEquals(driver.getCurrentUrl(),homeUrl);
-        }
-        catch (Exception e)
-        {
-            System.out.println("problem in home button function");
-        }
+        Assert.assertEquals(driver.getCurrentUrl(),homeUrl);
+
 
         // check what we do button functions by click the button and check respective url
         home.clickWhatWeDo();
-        try {
-            Assert.assertEquals(driver.getCurrentUrl(),whatWeDoUrl);
-        }
-        catch (Exception e)
-        {
-            System.out.println("problem in what we do button function");
-        }
+        Assert.assertEquals(driver.getCurrentUrl(),whatWeDoUrl);
+
 
         // check about us button functions by click the button and check respective url
         home.clickAboutUs();
-        try {
-            Assert.assertEquals(driver.getCurrentUrl(),aboutUsUrl);
-        }
-        catch (Exception e)
-        {
-            System.out.println("problem in about us button function");
-        }
+        Assert.assertEquals(driver.getCurrentUrl(),aboutUsUrl);
+
 
         // check industries button functions by click the button and check respective url
         home.clickIndustries();
-        try {
-            Assert.assertEquals(driver.getCurrentUrl(),industriesUrl);
-        }
-        catch (Exception e)
-        {
-            System.out.println("problem in industries button function");
-        }
+        Assert.assertEquals(driver.getCurrentUrl(),industriesUrl);
+
 
         //check the function of home button on the bottom of the page
         // by click the button and check respective url
         home.clickHomeBottom();
-        try {
-            Assert.assertEquals(driver.getCurrentUrl(),homeUrl);
-        }
-        catch (Exception e)
-        {
-            System.out.println("problem in home button function which is bottom of the page");
-        }
+        Assert.assertEquals(driver.getCurrentUrl(),homeUrl);
+
 
         //check the function of home button on the bottom of the page
         // by click the button and check respective url
         home.clickOurClient();
-        try {
-            Assert.assertEquals(driver.getCurrentUrl(),industriesUrl);
-        }
-        catch (Exception e)
-        {
-            System.out.println("problem in our clients button function which is bottom of the page");
-        }
+        Assert.assertEquals(driver.getCurrentUrl(),industriesUrl);
+
 
         //check the function of home button on the bottom of the page
         // by click the button and check respective url
         home.clickAboutUsBottom();
-        try {
-            Assert.assertEquals(driver.getCurrentUrl(),aboutUsUrl);
-        }
-        catch (Exception e)
-        {
-            System.out.println("problem in about us button function which is bottom of the page");
-        }
+        Assert.assertEquals(driver.getCurrentUrl(),aboutUsUrl);
+
     }
 }

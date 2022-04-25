@@ -4,8 +4,12 @@ import PageObjects.EmployeeSignupPage;
 import PageObjects.HomePage;
 import PageObjects.Loginpage;
 import PreRequisites.BaseClass;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.time.Duration;
 
 
 public class EmployeeSignupTest extends BaseClass {
@@ -14,40 +18,52 @@ public class EmployeeSignupTest extends BaseClass {
     String userErrorMessage = "Username and Mail Id should be unique !!";
     String PasswordErrorMessage = "Password should be more than five digits !!";
 
+    HomePage home;
+    Loginpage login;
+    EmployeeSignupPage signup;
+
     @Test(priority = 1)
     public void validateEmployeeSignup() throws Exception
     {
-        HomePage home = new HomePage(driver);
+        OpenDriver(properties.getProperty("url"));
+        home = new HomePage(driver);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         home.clickLogin();
 
-        Loginpage login = new Loginpage(driver);
+        login = new Loginpage(driver);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         login.clickSignUp();
 
-        EmployeeSignupPage signup = new EmployeeSignupPage(driver);
-        signup.enterUsername(prop.getProperty("signup_emp_new_username"));
-        signup.enterMailId(prop.getProperty("signup_emp_new_mailId"));
-        signup.enterPassword1(prop.getProperty("signup_emp_password1"));
-        signup.enterPassword2(prop.getProperty("signup_emp_password2"));
-        signup.selectOrganization(prop.getProperty("signup_emp_organization"));
+        signup = new EmployeeSignupPage(driver);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        signup.enterUsername(properties.getProperty("signup_emp_new_username"));
+        signup.enterMailId(properties.getProperty("signup_emp_new_mailId"));
+        signup.enterPassword1(properties.getProperty("signup_emp_password1"));
+        signup.enterPassword2(properties.getProperty("signup_emp_password2"));
+        signup.selectOrganization(properties.getProperty("signup_emp_organization"));
         signup.clickSignUp();
-        Thread.sleep(3000);
+
+        new WebDriverWait(driver, 20).until(ExpectedConditions.alertIsPresent());
+
+        Assert.assertEquals(driver.switchTo().alert().getText(),successMessage);
+
         try {
-            Assert.assertEquals(driver.switchTo().alert().getText(),successMessage);
             driver.switchTo().alert().accept();
         }
         catch (Exception e)
         {
-            System.out.println("validateEmployeeSignup unsuccessful");
+            System.out.println("validateEmployeeSignup unsuccessful as alert not shown");
         }
     }
 
     @Test(priority = 2)
     public void InvalidateSignupByUsername() throws Exception
     {
-        Thread.sleep(3000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         try {
-            Loginpage login = new Loginpage(driver);
+            login = new Loginpage(driver);
             login.clickSignUp();
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         }
         catch (Exception e)
         {
@@ -55,46 +71,36 @@ public class EmployeeSignupTest extends BaseClass {
         }
 
 
-        EmployeeSignupPage signup = new EmployeeSignupPage(driver);
+        signup = new EmployeeSignupPage(driver);
         signup.clearUsername();
         signup.clearMailId();
         signup.clearPassword1();
         signup.clearPassword2();
-        signup.enterUsername(prop.getProperty("signup_emp_exist_username"));
-        signup.enterMailId(prop.getProperty("signup_emp_exist_mailId"));
-        signup.enterPassword1(prop.getProperty("signup_emp_password1"));
-        signup.enterPassword2(prop.getProperty("signup_emp_password2"));
-        signup.selectOrganization(prop.getProperty("signup_emp_organization"));
+        signup.enterUsername(properties.getProperty("signup_emp_exist_username"));
+        signup.enterMailId(properties.getProperty("signup_emp_exist_mailId"));
+        signup.enterPassword1(properties.getProperty("signup_emp_password1"));
+        signup.enterPassword2(properties.getProperty("signup_emp_password2"));
+        signup.selectOrganization(properties.getProperty("signup_emp_organization"));
         signup.clickSignUp();
-        try {
-            Assert.assertEquals(driver.findElement(signup.errorMessage).getAttribute("textContent"),userErrorMessage);
-        }
-        catch (Exception e)
-        {
-            System.out.println("InvalidateSignupByUsername unsuccessful");
-        }
+        Assert.assertEquals(driver.findElement(signup.errorMessage).getAttribute("textContent"),userErrorMessage);
+
     }
 
     @Test(priority = 3)
     public void InvalidateSignupByPassword()
     {
-        EmployeeSignupPage signup = new EmployeeSignupPage(driver);
+        signup = new EmployeeSignupPage(driver);
         signup.clearUsername();
         signup.clearMailId();
         signup.clearPassword1();
         signup.clearPassword2();
-        signup.enterUsername(prop.getProperty("signup_emp_new_username"));
-        signup.enterMailId(prop.getProperty("signup_emp_new_mailId"));
+        signup.enterUsername(properties.getProperty("signup_emp_new_username"));
+        signup.enterMailId(properties.getProperty("signup_emp_new_mailId"));
         signup.enterPassword1("");
         signup.enterPassword2("");
-        signup.selectOrganization(prop.getProperty("signup_emp_organization"));
+        signup.selectOrganization(properties.getProperty("signup_emp_organization"));
         signup.clickSignUp();
-        try {
-            Assert.assertEquals(driver.findElement(signup.errorMessage).getAttribute("textContent"),PasswordErrorMessage);
-        }
-        catch (Exception e)
-        {
-            System.out.println("InvalidateSignupByPassword unsuccessful");
-        }
+        Assert.assertEquals(driver.findElement(signup.errorMessage).getAttribute("textContent"),PasswordErrorMessage);
+
     }
 }

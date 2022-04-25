@@ -18,6 +18,7 @@ public class HomePage {
     static By homeBottom = By.xpath("(//a[@href='#top-home'])[2]");
     static By ourClients = By.xpath("(//a[@href='#clients'])[2]");
     static By aboutUsBottom = By.xpath("(//a[@href='#aboutUs'])[2]");
+    static By organizationRegistration = By.xpath("//*[@id='top-home']/div[1]/div/button");
 
 
     // constructor to initialize driver
@@ -73,10 +74,13 @@ public class HomePage {
     }
 
     // method to click about us button on the bottom of the page
-    public void clickAboutUsBottom()
-    {
+    public void clickAboutUsBottom() {
         WebElement element = driver.findElement(aboutUsBottom);
-        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", element);
+    }
+
+    public WebElement organizationRegistrationButton(){
+        return driver.findElement(organizationRegistration);
     }
 }
