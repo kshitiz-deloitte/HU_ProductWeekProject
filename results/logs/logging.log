@@ -1,8 +1,0 @@
-2022-04-25 18:05:07.719 [main] INFO  Runner.Listeners - validateEmployeeLogin: Failed
-2022-04-25 18:05:14.317 [main] INFO  Runner.Listeners - validateAdminLogin: Failed
-2022-04-25 18:05:15.485 [main] INFO  Runner.Listeners - validateOrganizationLogin: Succeeded
-2022-04-25 18:05:16.358 [main] INFO  Runner.Listeners - inValidateEmployeeLogin: Succeeded
-2022-04-25 18:05:17.514 [main] INFO  Runner.Listeners - inValidateAdminLogin: Succeeded
-2022-04-25 18:05:18.025 [main] INFO  Runner.Listeners - inValidateOrganizationLogin: Succeeded
-2022-04-25 18:05:23.501 [main] INFO  Runner.Listeners - AdminLogin: Failed
-2022-04-25 18:05:30.712 [main] INFO  Runner.Listeners - LoginWithRemember: Failed

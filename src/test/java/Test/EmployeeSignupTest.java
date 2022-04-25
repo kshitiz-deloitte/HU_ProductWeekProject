@@ -22,6 +22,7 @@ public class EmployeeSignupTest extends BaseClass {
     public void validateEmployeeSignup() throws Exception
     {
         OpenDriver(properties.getProperty("url"));
+        System.out.println(properties.getProperty("url"));
         home = new HomePage(driver);
         home.clickLogin();
 
