@@ -4,10 +4,15 @@ import PreRequisites.BaseClass;
 import PageObjects.HomePage;
 import PageObjects.Loginpage;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
 
 public class LoginTest extends BaseClass {
+
+    public LoginTest(WebDriver driver) {
+        super();
+    }
 
     @Test
     public void login()
