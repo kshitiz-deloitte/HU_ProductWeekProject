@@ -15,6 +15,7 @@ public class AddOrEditEmployeeDetailsTest extends BaseClass {
     FinalStepPage finalStepPage;
     @Test(priority = 1)
     public void enterEmployeePersonalDetails() throws InterruptedException {
+        OpenDriver(properties.getProperty("url"));
         homePage= new HomePage(driver);
         loginPage=new Loginpage(driver);
         personalInformationPage = new PersonalInformationPage(driver);
@@ -37,11 +38,12 @@ public class AddOrEditEmployeeDetailsTest extends BaseClass {
     public void enterEmployeeEducationalDetails(){
         educationalInformationPage = new EducationalInformationPage(driver);
         educationalInformationPage.enterHighestEducationDegree(properties.getProperty("highest_education_degree"));
-        educationalInformationPage.enterCollegeName(properties.getProperty("NHCE"));
-        educationalInformationPage.enterUniversityName(properties.getProperty("VTU"));
-        educationalInformationPage.enterCPI(properties.getProperty("9.3"));
-        educationalInformationPage.enterYearOfPassing(properties.getProperty("6-10-2021"));
+        educationalInformationPage.enterCollegeName(properties.getProperty("college_name"));
+        educationalInformationPage.enterUniversityName(properties.getProperty("university"));
+        educationalInformationPage.enterCPI(properties.getProperty("cpi"));
+        educationalInformationPage.enterYearOfPassing(properties.getProperty("year_of_passing"));
         educationalInformationPage.clickNextButton();
+        System.out.println("Test Success");
     }
 
     @Test(priority = 3)
@@ -68,16 +70,19 @@ public class AddOrEditEmployeeDetailsTest extends BaseClass {
 
     @Test(priority = 5)
     public void enterEmploymentHistory(){
-        contactInformationPage = new ContactInformationPage(driver);
-        contactInformationPage.enterHouseNumber(properties.getProperty("house_number"));
-        contactInformationPage.enterArea(properties.getProperty("area"));
-        contactInformationPage.enterCity(properties.getProperty("city"));
-        contactInformationPage.enterState(properties.getProperty("state"));
-        contactInformationPage.enterPinCode(properties.getProperty("pin_code"));
-        contactInformationPage.enterCountry(properties.getProperty("country"));
-        contactInformationPage.enterContactNumber(properties.getProperty("contact_num"));
-        contactInformationPage.clickNextButton();
+        employeeHistoryPage = new EmployeeHistoryPage(driver);
+        employeeHistoryPage.enterTotalYrOfExperience(properties.getProperty("total_year_of_experience"));
+        employeeHistoryPage.enterPreviousCompany(properties.getProperty("previous_company"));
+        employeeHistoryPage.enterUanNum(properties.getProperty("uan_num"));
+        employeeHistoryPage.enterJoinDate(properties.getProperty("joining_date"));
+        employeeHistoryPage.enterExitDate(properties.getProperty("exit_date"));
+        employeeHistoryPage.clickNextButton();
     }
 
-
+    @Test(priority = 5)
+    public void validateEmployeeDetailsInEmployeeDashboard() throws InterruptedException {
+        finalStepPage = new FinalStepPage(driver);
+        finalStepPage.clickFinishButton();
+        Thread.sleep(3000);
+    }
 }

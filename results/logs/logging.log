@@ -1,0 +1,6 @@
+2022-04-25 15:28:40.126 [main] INFO  Runner.Listeners - enterEmployeePersonalDetails: Succeeded
+2022-04-25 15:28:40.771 [main] INFO  Runner.Listeners - enterEmployeeEducationalDetails: Succeeded
+2022-04-25 15:28:41.741 [main] INFO  Runner.Listeners - enterContactDetails: Succeeded
+2022-04-25 15:28:42.119 [main] INFO  Runner.Listeners - enterBankDetails: Succeeded
+2022-04-25 15:28:42.843 [main] INFO  Runner.Listeners - enterEmploymentHistory: Succeeded
+2022-04-25 15:28:45.932 [main] INFO  Runner.Listeners - validateEmployeeDetailsInEmployeeDashboard: Succeeded

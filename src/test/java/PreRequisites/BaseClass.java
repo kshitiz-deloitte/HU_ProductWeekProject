@@ -28,7 +28,7 @@ public class BaseClass {
     // open url into chrome driver
     public void OpenDriver(String url){
         System.setProperty(properties.getProperty("browser_type"), properties.getProperty("driver_path")); // setting driver location
-        driver=new ChromeDriver();          // creating driver object
+        driver=new ChromeDriver(); // creating driver object
         driver.get(url);  // launch using link
         driver.manage().window().maximize(); // maximize window
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
