@@ -17,7 +17,7 @@ public class EmployeeSignupPage {
     By organization = By.xpath("//select[@name='company']");
     By signUp = By.xpath("//button[@class='button-one margin-top-1vh']");
 
-    public static By errorMessage = By.xpath("//p[@class='red']");
+    public static By error = By.xpath("//p[@class='red']");
 
     // constructor to initialize driver
     public EmployeeSignupPage(WebDriver driver)
@@ -97,5 +97,10 @@ public class EmployeeSignupPage {
         while(!element.getAttribute("value").equals("")){
             element.sendKeys(Keys.BACK_SPACE);
         }
+    }
+
+    public String  errorMessage()
+    {
+        return driver.findElement(error).getAttribute("textContent");
     }
 }

@@ -24,8 +24,8 @@ public class AdminTest extends BaseClass {
         home.clickLogin();
 
         Loginpage login = new Loginpage(driver);
-        login.enterUsername(prop.getProperty("login_admin_username"));
-        login.enterPassword(prop.getProperty("login_password"));
+        login.enterUsername(properties.getProperty("login_admin_username"));
+        login.enterPassword(properties.getProperty("login_password"));
         login.selectRole(role[1]);
         login.clickLogin();
     }
