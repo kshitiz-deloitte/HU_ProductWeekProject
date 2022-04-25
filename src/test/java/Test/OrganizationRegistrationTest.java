@@ -72,7 +72,7 @@ public class OrganizationRegistrationTest extends BaseClass {
         // clicking password visibility toggle
         organizationRegistrationPage.clickPasswordToggle();
     }
-    // setting data from property file into registration page form
+    // setting data from propertieserty file into registration page form
     public void setOrganizationRegistrationDetails(){
         organizationRegistrationPage.setCompanyName(properties.getProperty("company_name"));
         organizationRegistrationPage.setCompanyPan(properties.getProperty("company_pan"));
@@ -83,4 +83,3 @@ public class OrganizationRegistrationTest extends BaseClass {
         organizationRegistrationPage.setContactNumber(properties.getProperty("contact_number"));
         organizationRegistrationPage.setAddress(properties.getProperty("address"));
     }
-}
