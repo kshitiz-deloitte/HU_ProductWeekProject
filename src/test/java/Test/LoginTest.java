@@ -117,7 +117,7 @@ public class LoginTest extends BaseClass {
     }
 
     @Test(priority = 7)
-    // Test to verify error message by login as admin using employee credentials
+    // Test to verify  error message by login as admin using employee credentials
     public void AdminLoginUsingEmployeeDetails()
     {
         login = new Loginpage(driver);
