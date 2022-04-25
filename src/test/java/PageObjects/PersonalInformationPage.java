@@ -1,55 +1,68 @@
 package PageObjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.List;
-import java.util.Properties;
-
 public class PersonalInformationPage {
-    static By firstName = By.xpath("//input[@name='firstName']");
-    static By lastName = By.xpath("//input[@name='lastName']");
-    static By genderList = By.xpath("//div[@aria-labelledby='demo-radio-buttons-group-label']");
-    static By datePicker = By.xpath("//*[@id='dob']");
+    WebDriver driver;
 
-    public static void main(String[] args) throws IOException, InterruptedException {
-        Properties prop = new Properties();
-        prop.load(new FileInputStream("src/main/resources/data.properties"));
-        System.out.println(prop.getProperty("login_admin_username"));
+    static By editDetailsButton = By.xpath("(//span[contains(text(),'Edit Details')])[1]//parent::button");
+    static By firstNamePath = By.xpath("//input[@name='firstName']");
+    static By lastNamePath = By.xpath("//input[@name='lastName']");
+    static By genderListPath = By.xpath("//div[@aria-labelledby='demo-radio-buttons-group-label']//child::label");
+    static By datePickerPath = By.xpath("//input[@id='dob']");
+    static By bloodGroupPath = By.xpath("//input[@name='bloodGroup']");
+    static By citizenshipPath = By.xpath("//input[@id='citizenship']");
+    static By nextBtnPath = By.xpath("//span[contains(text(),'Next')]//parent::button");
 
-        System.setProperty(prop.getProperty("browser_type"), prop.getProperty("driver_path"));
-        WebDriver driver = new ChromeDriver();
-        driver.get("https://kycportal-urtjok3rza-wl.a.run.app/sign-in");
-        WebElement userElement = driver.findElement(By.xpath("//input[@name='username']"));
-        userElement.sendKeys(prop.getProperty("login_emp_username"));
-        WebElement passElement = driver.findElement(By.xpath("//input[@name='password']"));
-        passElement.sendKeys(prop.getProperty("login_password"));
-        Select select = new Select(driver.findElement(By.id("user_type")));
+    public PersonalInformationPage(WebDriver driver)
+    {
+        this.driver=driver;
+    }
 
-        select.selectByVisibleText("Employee");
+    public void clickEditDetailsButton() {
+        new WebDriverWait(driver, 20).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(editDetailsButton));
+        driver.findElement(editDetailsButton).click();
+    }
 
-        WebElement loginButton = driver.findElement(By.xpath("//button[@class='button-one']"));
-        loginButton.click();
-
-        new WebDriverWait(driver, 20).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[1]/div/div[2]/div/div/div/div[7]/button")));
-
-        WebElement editButton = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[1]/div/div[2]/div/div/div/div[7]/button"));
-        editButton.click();
-
-        WebElement firstNameE = driver.findElement(firstName);
-        firstNameE.sendKeys("Test");
-        WebElement lastNameE = driver.findElement(lastName);
-        firstNameE.sendKeys("Test");
-
-
-        Thread.sleep(3000);
-        driver.close();
+    public void enterFirstName(String firstName) {
+        // Enter First name in Personal Page
+        driver.findElement(firstNamePath).sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));;
+        driver.findElement(firstNamePath).sendKeys(firstName);
+    }
+    public void enterLastName(String lastName) {
+        // Enter Last name in Personal Page
+        driver.findElement(lastNamePath).sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));;
+        driver.findElement(lastNamePath).sendKeys(lastName);
+    }
+    public void selectGender(String gender) {
+        // Selects Gender in Personal Page
+        for (WebElement i: driver.findElements(genderListPath)){
+            // TODO: Replace the hard coding with the properties file
+            if (i.getText().compareTo(gender) == 0)
+                i.click();
+        }
+    }
+    public void enterDateOfBirth(String dateOfBirth) {
+        // Enter Date of Birth in Personal Page
+        driver.findElement(datePickerPath).sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));;
+        driver.findElement(datePickerPath).sendKeys(dateOfBirth);
+    }
+    public void enterBloodGroup(String bloodGroup) {
+        // Enter Blood Group in Personal Page
+        driver.findElement(bloodGroupPath).sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));;
+        driver.findElement(bloodGroupPath).sendKeys(bloodGroup);
+    }
+    public void enterCitizenship(String citizenship) {
+        // Enter Citizenship in Personal Page
+        driver.findElement(citizenshipPath).sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));;
+        driver.findElement(citizenshipPath).sendKeys(citizenship);
+    }
+    public void clickNextButton(){
+        driver.findElement(nextBtnPath).click();
     }
 }

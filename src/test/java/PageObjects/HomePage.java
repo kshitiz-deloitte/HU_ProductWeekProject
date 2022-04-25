@@ -2,6 +2,7 @@ package PageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class HomePage {
     WebDriver driver;
@@ -50,7 +51,11 @@ public class HomePage {
         driver.findElement(login).click();
     }
 
-    public void clickOrganizationRegistration(){
-        driver.findElement(organizationRegistration).click();
+    public WebElement organizationRegistrationButton(){
+        return driver.findElement(organizationRegistration);
+    }
+
+    public String getButtonText(){
+        return driver.findElement(login).getText();
     }
 }
