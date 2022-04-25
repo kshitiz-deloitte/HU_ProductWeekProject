@@ -1,8 +1,6 @@
 package Test;
 
-import PageObjects.HomePage;
-import PageObjects.Loginpage;
-import PageObjects.PersonalInformationPage;
+import PageObjects.*;
 import PreRequisites.BaseClass;
 import org.testng.annotations.Test;
 
@@ -10,9 +8,13 @@ public class AddOrEditEmployeeDetailsTest extends BaseClass {
     HomePage homePage;
     Loginpage loginPage;
     PersonalInformationPage personalInformationPage;
+    EducationalInformationPage educationalInformationPage;
+    ContactInformationPage contactInformationPage;
+    BankDetailsPage bankDetailsPage;
+    EmployeeHistoryPage employeeHistoryPage;
+    FinalStepPage finalStepPage;
     @Test(priority = 1)
     public void enterEmployeePersonalDetails() throws InterruptedException {
-        OpenDriver(properties.getProperty("url"));
         homePage= new HomePage(driver);
         loginPage=new Loginpage(driver);
         personalInformationPage = new PersonalInformationPage(driver);
@@ -28,8 +30,54 @@ public class AddOrEditEmployeeDetailsTest extends BaseClass {
         personalInformationPage.enterDateOfBirth(properties.getProperty("date_of_birth"));
         personalInformationPage.enterBloodGroup(properties.getProperty("blood_group"));
         personalInformationPage.enterCitizenship(properties.getProperty("citizenship"));
-        Thread.sleep(2000);
         personalInformationPage.clickNextButton();
-
     }
+
+    @Test(priority = 2)
+    public void enterEmployeeEducationalDetails(){
+        educationalInformationPage = new EducationalInformationPage(driver);
+        educationalInformationPage.enterHighestEducationDegree(properties.getProperty("highest_education_degree"));
+        educationalInformationPage.enterCollegeName(properties.getProperty("NHCE"));
+        educationalInformationPage.enterUniversityName(properties.getProperty("VTU"));
+        educationalInformationPage.enterCPI(properties.getProperty("9.3"));
+        educationalInformationPage.enterYearOfPassing(properties.getProperty("6-10-2021"));
+        educationalInformationPage.clickNextButton();
+    }
+
+    @Test(priority = 3)
+    public void enterContactDetails(){
+        contactInformationPage = new ContactInformationPage(driver);
+        contactInformationPage.enterHouseNumber(properties.getProperty("house_number"));
+        contactInformationPage.enterArea(properties.getProperty("area"));
+        contactInformationPage.enterCity(properties.getProperty("city"));
+        contactInformationPage.enterState(properties.getProperty("state"));
+        contactInformationPage.enterPinCode(properties.getProperty("pin_code"));
+        contactInformationPage.enterCountry(properties.getProperty("country"));
+        contactInformationPage.enterContactNumber(properties.getProperty("contact_num"));
+        contactInformationPage.clickNextButton();
+    }
+
+    @Test(priority = 4)
+    public void enterBankDetails(){
+        bankDetailsPage = new BankDetailsPage(driver);
+        bankDetailsPage.enterBankName(properties.getProperty("bank_name"));
+        bankDetailsPage.enterAccountNum(properties.getProperty("account_num"));
+        bankDetailsPage.enterIfscCode(properties.getProperty("ifsc_code"));
+        bankDetailsPage.clickNextButton();
+    }
+
+    @Test(priority = 5)
+    public void enterEmploymentHistory(){
+        contactInformationPage = new ContactInformationPage(driver);
+        contactInformationPage.enterHouseNumber(properties.getProperty("house_number"));
+        contactInformationPage.enterArea(properties.getProperty("area"));
+        contactInformationPage.enterCity(properties.getProperty("city"));
+        contactInformationPage.enterState(properties.getProperty("state"));
+        contactInformationPage.enterPinCode(properties.getProperty("pin_code"));
+        contactInformationPage.enterCountry(properties.getProperty("country"));
+        contactInformationPage.enterContactNumber(properties.getProperty("contact_num"));
+        contactInformationPage.clickNextButton();
+    }
+
+
 }
