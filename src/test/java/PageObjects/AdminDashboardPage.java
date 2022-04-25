@@ -1,7 +1,13 @@
 package PageObjects;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+
+import java.io.File;
+import java.io.IOException;
 
 public class AdminDashboardPage {
     WebDriver driver;
@@ -32,6 +38,9 @@ public class AdminDashboardPage {
 
     //Input Message xpaths
     static By messageInput = By.xpath("//input[@id=\"outlined-basic\"]");
+
+    //For logout Button
+    static By logoutButton = By.xpath("//button[@class=\"btn login\"]");
 
     public AdminDashboardPage(WebDriver driver){
         this.driver = driver;
@@ -80,7 +89,12 @@ public class AdminDashboardPage {
     public void clickInstructionBankDetails(){
         driver.findElement(instruction_bankDetails).click();
     }
-    public void clickInstructionEmployementHistory(){
-        driver.findElement(instruction_employementHistory).click();
+    public void clickInstructionEmployementHistory(){driver.findElement(instruction_employementHistory).click();}
+    public void clickLogoutButton(){driver.findElement(logoutButton).click();}
+     public void takescreenshots(String name) throws IOException {
+        TakesScreenshot scrShot = ((TakesScreenshot) driver);
+        File SourceFile = scrShot.getScreenshotAs(OutputType.FILE);
+        File DestFile = new File("C:\\Users\\kottv\\HU_ProductWeekProject\\HU_ProductWeekProject\\screenshots\\" + name + ".jpg");
+        FileUtils.copyFile(SourceFile, DestFile);
     }
 }
