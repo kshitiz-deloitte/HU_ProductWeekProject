@@ -84,3 +84,4 @@ public class OrganizationRegistrationTest extends BaseClass {
         organizationRegistrationPage.setAddress(properties.getProperty("address"));
     }
 }
+

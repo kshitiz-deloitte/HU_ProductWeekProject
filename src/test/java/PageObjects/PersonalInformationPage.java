@@ -17,7 +17,7 @@ public class PersonalInformationPage {
     static By datePickerPath = By.xpath("//input[@id='dob']");
     static By bloodGroupPath = By.xpath("//input[@name='bloodGroup']");
     static By citizenshipPath = By.xpath("//input[@id='citizenship']");
-    static By nextBtnPath = By.xpath("//span[contains(text(),'Next')]//following-sibling::span");
+    static By nextBtnPath = By.xpath("//span[contains(text(),'Next')]//parent::button");
 
     public PersonalInformationPage(WebDriver driver)
     {
