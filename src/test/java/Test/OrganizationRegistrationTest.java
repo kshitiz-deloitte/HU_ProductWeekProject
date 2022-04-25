@@ -83,5 +83,3 @@ public class OrganizationRegistrationTest extends BaseClass {
         organizationRegistrationPage.setContactNumber(properties.getProperty("contact_number"));
         organizationRegistrationPage.setAddress(properties.getProperty("address"));
     }
-}
-
