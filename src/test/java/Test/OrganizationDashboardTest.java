@@ -20,7 +20,7 @@ public class OrganizationDashboardTest extends BaseClass {
     @Test(priority = 1)
     public void checkUrlIsOpeningOrNot(){
         // open url
-        OpenDriver(prop.getProperty("url"));
+        OpenDriver(properties.getProperty("url"));
     }
 
     @Test(priority = 2)
@@ -28,8 +28,8 @@ public class OrganizationDashboardTest extends BaseClass {
         Initializer();
         // login into the Organization Dashboard
         homePage.clickLogin();
-        loginpage.enterUsername(prop.getProperty("signin_company_name"));
-        loginpage.enterPassword(prop.getProperty("Signin_password"));
+        loginpage.enterUsername(properties.getProperty("signin_company_name"));
+        loginpage.enterPassword(properties.getProperty("Signin_password"));
         loginpage.selectRole(role[2]);
         loginpage.clickLogin();
         Thread.sleep(2000);
@@ -43,7 +43,7 @@ public class OrganizationDashboardTest extends BaseClass {
     public void checkSearchingUser() throws InterruptedException {
         Thread.sleep(2000);
         // Input search name
-        organizationDashboardPage.setSearchInput(prop.getProperty("search_key"));
+        organizationDashboardPage.setSearchInput(properties.getProperty("search_key"));
         // click search
         organizationDashboardPage.clickSearch();
         // validating search result
@@ -56,7 +56,7 @@ public class OrganizationDashboardTest extends BaseClass {
         Thread.sleep(2000);
         organizationDashboardPage.clearSearchInput();
         // input search key
-        organizationDashboardPage.setSearchInput(prop.getProperty("search_key_change_case"));
+        organizationDashboardPage.setSearchInput(properties.getProperty("search_key_change_case"));
         // click search
         organizationDashboardPage.clickSearch();
         // validating search result
