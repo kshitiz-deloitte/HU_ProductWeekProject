@@ -7,7 +7,6 @@ import PreRequisites.BaseClass;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import javax.naming.InitialContext;
 
 // tests for organization Dashboard
 public class OrganizationDashboardTest extends BaseClass {
