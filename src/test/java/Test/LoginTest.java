@@ -3,15 +3,27 @@ package Test;
 import PageObjects.HomePage;
 import PageObjects.Loginpage;
 
+
+import org.openqa.selenium.WebDriver;
+
 import PreRequisites.BaseClass;
 import org.openqa.selenium.By;
 import org.testng.Assert;
+
 import org.testng.annotations.Test;
 
 import java.time.Duration;
 
 
 public class LoginTest extends BaseClass {
+
+
+    public LoginTest(WebDriver driver) {
+        super();
+    }
+
+    @Test
+    public void login()
 
     // string values to compare and assert
 
@@ -26,6 +38,7 @@ public class LoginTest extends BaseClass {
     @Test(priority = 1)
     // Test to validate successful employee login
     public void validateEmployeeLogin()
+
     {
         OpenDriver(properties.getProperty("url"));
         home = new HomePage(driver);
