@@ -67,31 +67,44 @@ public class AdminTest extends BaseClass {
         Assert.assertEquals(expectedURL, actualURL);
     }
 
+
+    // TC006-Positive Test Case-(Checking whether the uploaded file by the Employee can be downloaded are not)
+    @Test(priority = 4)
+    public void downloadingChecking() throws InterruptedException {
+        AdminDashboardPage adminDash = new AdminDashboardPage(driver);
+        Thread.sleep(3000);
+        adminDash.clickAadarDownloadButton();
+        Set<String> winSet = driver.getWindowHandles();
+        List<String> winList = new ArrayList<String>(winSet);
+        System.out.println(winList.size());
+        if(winSet.size()==1) throw new AssertionError("Files are not downloadable.");
+        Thread.sleep(3000);
+    }
+
     // TC004-Negative Test Case(Candidate's Details are not available when the requested to Admin but when the Admin either Reject or Accept the request the Details will be shown in website)
-    @Test(priority =4)
+    @Test(priority =6)
     public void candidatesDetails() throws InterruptedException, IOException {
         AdminDashboardPage adminDash = new AdminDashboardPage(driver);
+        Thread.sleep(3000);
         String listNumber = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div/table/tfoot/div/div/p[2]")).getText();
         String lstNum = listNumber.substring(listNumber.length() - 2);
         int NumberOfRegisteredEmployee = Integer.parseInt(lstNum);
-        // System.out.println(NumberOfRegisteredEmployee);
+        System.out.println(NumberOfRegisteredEmployee);
         String kycStatus = null;
         for (int rowsPerPage = 1; rowsPerPage <= (NumberOfRegisteredEmployee / 10); rowsPerPage++) {
             for (int row = 1; row <= 10; row++) {
-                kycStatus = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div/table/tbody/tr[" + Integer.toString(row) + "]/td[4]/p")).getText();
-                // System.out.println(beforeActionKycStatus);
-                if (kycStatus == "Pending") {
+                kycStatus = adminDash.getKYCStatus(row);   // System.out.println(beforeActionKycStatus);
+                if (kycStatus.compareTo("Pending")==0) {
                     WebElement verify = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div/table/tbody/tr[" + Integer.toString(row) + "]/td[5]/button"));
                     verify.click();
                     Thread.sleep(3000);
-                    adminDash.takescreenshots("Candidate's_Details");
                     String fields = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div[1]/div[1]/div/div[2]/div/div/div/div[3]/p[2]")).getText();
                     if (fields == null) throw new AssertionError("The Candidate's Details are not Showing UP.");
                 }
             }
             Thread.sleep(3000);
-            WebElement rowsPerPageArrow = driver.findElement(By.xpath("//button[@title=\"Next page\"]"));  //finding xpth difficult
-            rowsPerPageArrow.click(); // not clicking
+            JavascriptExecutor executor = (JavascriptExecutor)driver;
+            executor.executeScript("arguments[0].click();", driver.findElement(By.id("//button[@title=\"Next page\"]")));
         }
     }
 
@@ -100,9 +113,11 @@ public class AdminTest extends BaseClass {
     public void acceptORrejectWithoutReadingInstruction() throws InterruptedException, IOException {
         AdminDashboardPage adminDash = new AdminDashboardPage(driver);
         Thread.sleep(3000);
-        String listNumber = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div/table/tfoot/div/div/p[2]")).getText();
-        String lstNum = listNumber.substring(listNumber.length() - 2);
-        System.out.println(listNumber);
+        // String listNumber = driver.findElement(By.xpath("")).getText();
+        String listNum = null;
+        listNum = adminDash.getListNumber();
+        String lstNum = listNum.substring(listNum.length() - 2);
+        System.out.println(listNum);
         int NumberOfRegisteredEmployee = Integer.parseInt(lstNum);
         System.out.println(NumberOfRegisteredEmployee);
         String afterActionKycStatus = null;
@@ -111,11 +126,10 @@ public class AdminTest extends BaseClass {
             for (int row = 1; row <= 10; row++) {
                 beforeActionKycStatus = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div/table/tbody/tr[" + Integer.toString(row) + "]/td[4]/p")).getText();
                 // System.out.println(beforeActionKycStatus);
-                if (beforeActionKycStatus == "Pending") {
+                if (beforeActionKycStatus.compareTo("Pending")==0) {
                     WebElement verify = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div/table/tbody/tr[" + Integer.toString(row) + "]/td[5]/button"));
                     verify.click();
                     Thread.sleep(3000);
-                    adminDash.takescreenshots("Without_Reading_Instruction");
                     adminDash.clickAcceptButton();
                     Thread.sleep(3000);
                     afterActionKycStatus = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div/table/tbody/tr[" + Integer.toString(row) + "]/td[4]/p")).getText();
@@ -127,23 +141,6 @@ public class AdminTest extends BaseClass {
             rowsPerPageArrow.click(); // not clicking
         }
         Assert.assertEquals(beforeActionKycStatus, afterActionKycStatus);
-    }
-
-    // TC006-Positive Test Case-(Checking whether the uploaded file by the Employee can be downloaded are not)
-    @Test(priority = 6)
-    public void downloadingChecking() throws InterruptedException {
-        AdminDashboardPage adminDash = new AdminDashboardPage(driver);
-        Thread.sleep(3000);
-        new WebDriverWait(driver, 20).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//button[@class=\"button-four\"]")));
-        WebElement verifyButtonWorking = driver.findElement(By.xpath("//button[@class=\"button-four\"]"));
-        verifyButtonWorking.click();
-        Thread.sleep(3000);
-        adminDash.clickAadarDownloadButton();
-        Set<String> winSet = driver.getWindowHandles();
-        List<String> winList = new ArrayList<String>(winSet);
-        System.out.println(winList.size());
-        if(winSet.size()==1) throw new AssertionError("Files are not downloadable.");
-        Thread.sleep(3000);
     }
 
     //Logging out from Admin Dashboard to Home page

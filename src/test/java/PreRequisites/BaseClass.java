@@ -34,8 +34,8 @@ public class BaseClass {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
     // close the driver
-    @AfterTest
-    public void closeDriver(){
-        driver.quit();
-    }
+//    @AfterTest
+//    public void closeDriver(){
+//        driver.quit();
+//    }
 }

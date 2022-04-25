@@ -13,7 +13,7 @@ public class AdminDashboardPage {
     WebDriver driver;
 
     //Arrow.Verify and filter button xpaths
-    public static By arrowButton = By.xpath("//select[@id=\"filter\"]");
+    public static By arrowButton = By.xpath("//*[@id=\"filter\"]");
     static By fileterButton = By.xpath("//button[@class=\"btn btn-primary button-six button-color-blue\"]");
 
     //Searching company Name and Search button xpaths
@@ -35,6 +35,8 @@ public class AdminDashboardPage {
     static By instruction_contactInformation = By.xpath("/(//input[@id=\"personalInformation\"])[3]");
     static By instruction_bankDetails = By.xpath("(//input[@id=\"personalInformation\"])[4]");
     static By instruction_employementHistory = By.xpath("(//input[@id=\"personalInformation\"])[5]");
+    static By kycStatus;
+    static By listNumber;
 
     //Input Message xpaths
     static By messageInput = By.xpath("//input[@id=\"outlined-basic\"]");
@@ -44,6 +46,15 @@ public class AdminDashboardPage {
 
     public AdminDashboardPage(WebDriver driver){
         this.driver = driver;
+    }
+
+    public String getKYCStatus(int row){
+        kycStatus = By.xpath("//*[@id='root']/div/div[2]/div[2]/div/div/table/tbody/tr["+row+"]/td[4]/p");
+        return driver.findElement(kycStatus).getText();
+    }
+    public String getListNumber(){
+        listNumber =  By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div/table/tfoot/div/div/p[2]");
+         return driver.findElement(listNumber).getText();
     }
 
     public void clickRejectButton(){
@@ -91,10 +102,4 @@ public class AdminDashboardPage {
     }
     public void clickInstructionEmployementHistory(){driver.findElement(instruction_employementHistory).click();}
     public void clickLogoutButton(){driver.findElement(logoutButton).click();}
-     public void takescreenshots(String name) throws IOException {
-        TakesScreenshot scrShot = ((TakesScreenshot) driver);
-        File SourceFile = scrShot.getScreenshotAs(OutputType.FILE);
-        File DestFile = new File("C:\\Users\\kottv\\HU_ProductWeekProject\\HU_ProductWeekProject\\screenshots\\" + name + ".jpg");
-        FileUtils.copyFile(SourceFile, DestFile);
-    }
 }

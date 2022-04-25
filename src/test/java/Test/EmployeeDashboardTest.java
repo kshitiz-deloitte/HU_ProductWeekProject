@@ -14,12 +14,12 @@ public class EmployeeDashboardTest extends BaseClass {
     @Test(priority = 1)
     public void initialize() throws InterruptedException {
         Thread.sleep(2000);
-        OpenDriver(prop.getProperty("url"));
+        OpenDriver(properties.getProperty("url"));
         homePage = new HomePage(driver);
         loginPage = new Loginpage(driver);
         homePage.clickLogin();
-        loginPage.enterUsername(prop.getProperty("login_emp_username"));
-        loginPage.enterPassword(prop.getProperty("login_password"));
+        loginPage.enterUsername(properties.getProperty("login_emp_username"));
+        loginPage.enterPassword(properties.getProperty("login_password"));
         loginPage.selectRole(role[0]);
         Thread.sleep(2000);
         loginPage.clickLogin();
