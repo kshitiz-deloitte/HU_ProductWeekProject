@@ -7,45 +7,66 @@ import PreRequisites.BaseClass;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import javax.naming.InitialContext;
+
+// tests for organization Dashboard
 public class OrganizationDashboardTest extends BaseClass {
+
+    // variable declaration
     HomePage homePage;
     Loginpage loginpage;
     OrganizationDashboardPage organizationDashboardPage;
 
-
+    // check url is opening or not
     @Test(priority = 1)
     public void checkUrlIsOpeningOrNot(){
-        OpenDriver(properties.getProperty("url"));
-        homePage= new HomePage(driver);
-        loginpage=new Loginpage(driver);
-        organizationDashboardPage=new OrganizationDashboardPage(driver);
+        // open url
+        OpenDriver(prop.getProperty("url"));
     }
 
     @Test(priority = 2)
     public void checkOrganizationDashboardIsOpeningOrNot() throws InterruptedException {
+        Initializer();
+        // login into the Organization Dashboard
         homePage.clickLogin();
-        loginpage.enterUsername(properties.getProperty("signin_company_name"));
-        loginpage.enterPassword(properties.getProperty("signin_password"));
+        loginpage.enterUsername(prop.getProperty("signin_company_name"));
+        loginpage.enterPassword(prop.getProperty("Signin_password"));
         loginpage.selectRole(role[2]);
         loginpage.clickLogin();
         Thread.sleep(2000);
+        // setting pagination 5
         organizationDashboardPage.setPagination(5);
-        Assert.assertEquals(organizationDashboardPage.numberOfUsersPerPage(),5,"Pagination not worked");
+        // validating pagination
+        Assert.assertEquals(organizationDashboardPage.numberOfUsersPerPage(), 5, "Pagination not worked");
     }
+    // checking searching user is working or not
     @Test(priority = 3)
-    public void checkSearchingUserIsWorkingOrNot() throws InterruptedException {
+    public void checkSearchingUser() throws InterruptedException {
         Thread.sleep(2000);
-        organizationDashboardPage.setSearchInput(properties.getProperty("search_key"));
+        // Input search name
+        organizationDashboardPage.setSearchInput(prop.getProperty("search_key"));
+        // click search
         organizationDashboardPage.clickSearch();
+        // validating search result
         Assert.assertEquals(organizationDashboardPage.numberOfUsersPerPage(), 1, "Search is Not Working Fine");
 
     }
+    // checking searching with change case name
     @Test(priority = 4)
-    public void checkSearchingUserWithChangeCaseIsWorkingOrNot() throws InterruptedException {
+    public void checkSearchingUserWithChangeCase() throws InterruptedException {
         Thread.sleep(2000);
         organizationDashboardPage.clearSearchInput();
-        organizationDashboardPage.setSearchInput(properties.getProperty("search_key_change_case"));
+        // input search key
+        organizationDashboardPage.setSearchInput(prop.getProperty("search_key_change_case"));
+        // click search
         organizationDashboardPage.clickSearch();
+        // validating search result
         Assert.assertEquals(organizationDashboardPage.numberOfUsersPerPage(), 1, "Search is Not Working Fine");
+    }
+    // Initialize class variables
+    public void Initializer(){
+        homePage= new HomePage(driver);
+        loginpage=new Loginpage(driver);
+        organizationDashboardPage=new OrganizationDashboardPage(driver);
     }
 }
