@@ -16,7 +16,6 @@ public class HomePageTest extends BaseClass {
 
 
     @Test
-
     // Test to validate buttons functions in home page
     public void validateHomeButtons() throws Exception
     {

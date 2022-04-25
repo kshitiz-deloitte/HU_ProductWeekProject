@@ -2,9 +2,11 @@ package Test;
 
 import PageObjects.*;
 import PreRequisites.BaseClass;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 public class AddOrEditEmployeeDetailsTest extends BaseClass {
+    WebDriverWait wait;
     HomePage homePage;
     Loginpage loginPage;
     PersonalInformationPage personalInformationPage;
@@ -79,7 +81,7 @@ public class AddOrEditEmployeeDetailsTest extends BaseClass {
         employeeHistoryPage.clickNextButton();
     }
 
-    @Test(priority = 5)
+    @Test(priority = 6)
     public void validateEmployeeDetailsInEmployeeDashboard() throws InterruptedException {
         finalStepPage = new FinalStepPage(driver);
         finalStepPage.clickFinishButton();

@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 
 import PreRequisites.BaseClass;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import org.testng.annotations.Test;
@@ -16,17 +18,6 @@ import java.time.Duration;
 
 
 public class LoginTest extends BaseClass {
-
-
-    public LoginTest(WebDriver driver) {
-        super();
-    }
-
-    @Test
-    public void login()
-
-    // string values to compare and assert
-
     String err = "Enter correct username and password !!";
     String employeeDashboard = "Employee Dashboard";
     String adminDashboard = "Admin Dashboard";
@@ -51,6 +42,7 @@ public class LoginTest extends BaseClass {
         login.selectRole(role[0]);
         login.clickLogin();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+//        new WebDriverWait(driver, 20).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(xpathOfElement));
         Assert.assertEquals(employeeDashboard,driver.findElement(login.dashboard).getAttribute("textContent"));
 
         driver.findElement(By.xpath("//button[@class='btn login']")).click();

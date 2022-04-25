@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary"></span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Apr 25, 2022 03:28:22 PM</span></a>
+<a href="#"><span class="badge badge-primary">Apr 25, 2022 06:04:50 PM</span></a>
 </li>
 </ul>
 </div>
@@ -67,6 +67,7 @@
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
 <ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
 <a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
+<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
 <div class="dropdown-divider"></div>
 <a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
 </ul>
@@ -74,25 +75,25 @@
 </ul>
 </div>    <div class="test-list-wrapper scrollable">
       <ul class="test-list-item">
-        <li class="test-item"  status="pass" test-id="1"
+        <li class="test-item"  status="fail" test-id="1"
           author=""
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">enterEmployeePersonalDetails</p>
+            <p class="name">validateEmployeeLogin</p>
             <p class="text-sm">
-              <span>3:28:22 PM</span> / <span>00:00:00:003</span>
-              <span class="badge pass-bg log float-right">Pass</span>
+              <span>6:04:50 PM</span> / <span>00:00:17:088</span>
+              <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">enterEmployeePersonalDetails</h5>
-<span class='badge badge-success'>04.25.2022 3:28:22 PM</span>
-<span class='badge badge-danger'>04.25.2022 3:28:22 PM</span>
-<span class='badge badge-default'>00:00:00:003</span>
+<h5 class="test-status text-fail">validateEmployeeLogin</h5>
+<span class='badge badge-success'>04.25.2022 6:04:50 PM</span>
+<span class='badge badge-danger'>04.25.2022 6:05:07 PM</span>
+<span class='badge badge-default'>00:00:17:088</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
@@ -104,9 +105,16 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:28:22 PM</td>
+        <td>6:04:50 PM</td>
         <td>
-          Starting Test enterEmployeePersonalDetails
+          Starting Test validateEmployeeLogin
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>6:05:07 PM</td>
+        <td>
+          validateEmployeeLogin: Test Failed
         </td>
       </tr>
   </tbody>
@@ -114,25 +122,25 @@
 </div>
           </div>
         </li>
-        <li class="test-item"  status="pass" test-id="2"
+        <li class="test-item"  status="fail" test-id="2"
           author=""
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">enterEmployeePersonalDetails</p>
+            <p class="name">validateAdminLogin</p>
             <p class="text-sm">
-              <span>3:28:40 PM</span> / <span>00:00:00:002</span>
-              <span class="badge pass-bg log float-right">Pass</span>
+              <span>6:05:07 PM</span> / <span>00:00:06:418</span>
+              <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">enterEmployeePersonalDetails</h5>
-<span class='badge badge-success'>04.25.2022 3:28:40 PM</span>
-<span class='badge badge-danger'>04.25.2022 3:28:40 PM</span>
-<span class='badge badge-default'>00:00:00:002</span>
+<h5 class="test-status text-fail">validateAdminLogin</h5>
+<span class='badge badge-success'>04.25.2022 6:05:07 PM</span>
+<span class='badge badge-danger'>04.25.2022 6:05:14 PM</span>
+<span class='badge badge-default'>00:00:06:418</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=2</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
@@ -143,28 +151,17 @@
   <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
   <tbody>
       <tr class="event-row">
-        <td><span class="badge log pass-bg">Pass</span></td>
-        <td>3:28:40 PM</td>
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>6:05:07 PM</td>
         <td>
-          Success
+          Starting Test validateAdminLogin
         </td>
       </tr>
       <tr class="event-row">
-        <td><span class="badge log pass-bg">Pass</span></td>
-        <td>3:28:40 PM</td>
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>6:05:14 PM</td>
         <td>
-          
-    <div class="row mb-3"><div class="col-md-3">
-<img data-featherlight='img.png' src="img.png">
-    
-    </div></div>
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log pass-bg">Pass</span></td>
-        <td>3:28:40 PM</td>
-        <td>
-          enterEmployeePersonalDetailsTest Passed
+          validateAdminLogin: Test Failed
         </td>
       </tr>
   </tbody>
@@ -177,9 +174,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">enterEmployeeEducationalDetails</p>
+            <p class="name">validateOrganizationLogin</p>
             <p class="text-sm">
-              <span>3:28:40 PM</span> / <span>00:00:00:000</span>
+              <span>6:05:14 PM</span> / <span>00:00:00:000</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -187,9 +184,9 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">enterEmployeeEducationalDetails</h5>
-<span class='badge badge-success'>04.25.2022 3:28:40 PM</span>
-<span class='badge badge-danger'>04.25.2022 3:28:40 PM</span>
+<h5 class="test-status text-pass">validateOrganizationLogin</h5>
+<span class='badge badge-success'>04.25.2022 6:05:14 PM</span>
+<span class='badge badge-danger'>04.25.2022 6:05:14 PM</span>
 <span class='badge badge-default'>00:00:00:000</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=3</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
@@ -202,9 +199,9 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:28:40 PM</td>
+        <td>6:05:14 PM</td>
         <td>
-          Starting Test enterEmployeeEducationalDetails
+          Starting Test validateOrganizationLogin
         </td>
       </tr>
   </tbody>
@@ -217,9 +214,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">enterEmployeeEducationalDetails</p>
+            <p class="name">validateOrganizationLogin</p>
             <p class="text-sm">
-              <span>3:28:40 PM</span> / <span>00:00:00:001</span>
+              <span>6:05:15 PM</span> / <span>00:00:00:003</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -227,10 +224,10 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">enterEmployeeEducationalDetails</h5>
-<span class='badge badge-success'>04.25.2022 3:28:40 PM</span>
-<span class='badge badge-danger'>04.25.2022 3:28:40 PM</span>
-<span class='badge badge-default'>00:00:00:001</span>
+<h5 class="test-status text-pass">validateOrganizationLogin</h5>
+<span class='badge badge-success'>04.25.2022 6:05:15 PM</span>
+<span class='badge badge-danger'>04.25.2022 6:05:15 PM</span>
+<span class='badge badge-default'>00:00:00:003</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=4</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
@@ -242,14 +239,7 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>3:28:40 PM</td>
-        <td>
-          Success
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log pass-bg">Pass</span></td>
-        <td>3:28:40 PM</td>
+        <td>6:05:15 PM</td>
         <td>
           
     <div class="row mb-3"><div class="col-md-3">
@@ -260,9 +250,9 @@
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>3:28:40 PM</td>
+        <td>6:05:15 PM</td>
         <td>
-          enterEmployeeEducationalDetailsTest Passed
+          validateOrganizationLogin: Test Passed
         </td>
       </tr>
   </tbody>
@@ -275,9 +265,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">enterContactDetails</p>
+            <p class="name">inValidateEmployeeLogin</p>
             <p class="text-sm">
-              <span>3:28:40 PM</span> / <span>00:00:00:000</span>
+              <span>6:05:15 PM</span> / <span>00:00:00:000</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -285,9 +275,9 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">enterContactDetails</h5>
-<span class='badge badge-success'>04.25.2022 3:28:40 PM</span>
-<span class='badge badge-danger'>04.25.2022 3:28:40 PM</span>
+<h5 class="test-status text-pass">inValidateEmployeeLogin</h5>
+<span class='badge badge-success'>04.25.2022 6:05:15 PM</span>
+<span class='badge badge-danger'>04.25.2022 6:05:15 PM</span>
 <span class='badge badge-default'>00:00:00:000</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=5</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
@@ -300,9 +290,9 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:28:40 PM</td>
+        <td>6:05:15 PM</td>
         <td>
-          Starting Test enterContactDetails
+          Starting Test inValidateEmployeeLogin
         </td>
       </tr>
   </tbody>
@@ -315,9 +305,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">enterContactDetails</p>
+            <p class="name">inValidateEmployeeLogin</p>
             <p class="text-sm">
-              <span>3:28:41 PM</span> / <span>00:00:00:000</span>
+              <span>6:05:16 PM</span> / <span>00:00:00:000</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -325,9 +315,9 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">enterContactDetails</h5>
-<span class='badge badge-success'>04.25.2022 3:28:41 PM</span>
-<span class='badge badge-danger'>04.25.2022 3:28:41 PM</span>
+<h5 class="test-status text-pass">inValidateEmployeeLogin</h5>
+<span class='badge badge-success'>04.25.2022 6:05:16 PM</span>
+<span class='badge badge-danger'>04.25.2022 6:05:16 PM</span>
 <span class='badge badge-default'>00:00:00:000</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=6</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
@@ -340,14 +330,7 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>3:28:41 PM</td>
-        <td>
-          Success
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log pass-bg">Pass</span></td>
-        <td>3:28:41 PM</td>
+        <td>6:05:16 PM</td>
         <td>
           
     <div class="row mb-3"><div class="col-md-3">
@@ -358,9 +341,9 @@
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>3:28:41 PM</td>
+        <td>6:05:16 PM</td>
         <td>
-          enterContactDetailsTest Passed
+          inValidateEmployeeLogin: Test Passed
         </td>
       </tr>
   </tbody>
@@ -373,9 +356,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">enterBankDetails</p>
+            <p class="name">inValidateAdminLogin</p>
             <p class="text-sm">
-              <span>3:28:41 PM</span> / <span>00:00:00:000</span>
+              <span>6:05:16 PM</span> / <span>00:00:00:000</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -383,9 +366,9 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">enterBankDetails</h5>
-<span class='badge badge-success'>04.25.2022 3:28:41 PM</span>
-<span class='badge badge-danger'>04.25.2022 3:28:41 PM</span>
+<h5 class="test-status text-pass">inValidateAdminLogin</h5>
+<span class='badge badge-success'>04.25.2022 6:05:16 PM</span>
+<span class='badge badge-danger'>04.25.2022 6:05:16 PM</span>
 <span class='badge badge-default'>00:00:00:000</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=7</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
@@ -398,9 +381,9 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:28:41 PM</td>
+        <td>6:05:16 PM</td>
         <td>
-          Starting Test enterBankDetails
+          Starting Test inValidateAdminLogin
         </td>
       </tr>
   </tbody>
@@ -413,9 +396,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">enterBankDetails</p>
+            <p class="name">inValidateAdminLogin</p>
             <p class="text-sm">
-              <span>3:28:42 PM</span> / <span>00:00:00:000</span>
+              <span>6:05:17 PM</span> / <span>00:00:00:000</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -423,9 +406,9 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">enterBankDetails</h5>
-<span class='badge badge-success'>04.25.2022 3:28:42 PM</span>
-<span class='badge badge-danger'>04.25.2022 3:28:42 PM</span>
+<h5 class="test-status text-pass">inValidateAdminLogin</h5>
+<span class='badge badge-success'>04.25.2022 6:05:17 PM</span>
+<span class='badge badge-danger'>04.25.2022 6:05:17 PM</span>
 <span class='badge badge-default'>00:00:00:000</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=8</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
@@ -438,14 +421,7 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>3:28:42 PM</td>
-        <td>
-          Success
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log pass-bg">Pass</span></td>
-        <td>3:28:42 PM</td>
+        <td>6:05:17 PM</td>
         <td>
           
     <div class="row mb-3"><div class="col-md-3">
@@ -456,9 +432,9 @@
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>3:28:42 PM</td>
+        <td>6:05:17 PM</td>
         <td>
-          enterBankDetailsTest Passed
+          inValidateAdminLogin: Test Passed
         </td>
       </tr>
   </tbody>
@@ -471,9 +447,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">enterEmploymentHistory</p>
+            <p class="name">inValidateOrganizationLogin</p>
             <p class="text-sm">
-              <span>3:28:42 PM</span> / <span>00:00:00:000</span>
+              <span>6:05:17 PM</span> / <span>00:00:00:000</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -481,9 +457,9 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">enterEmploymentHistory</h5>
-<span class='badge badge-success'>04.25.2022 3:28:42 PM</span>
-<span class='badge badge-danger'>04.25.2022 3:28:42 PM</span>
+<h5 class="test-status text-pass">inValidateOrganizationLogin</h5>
+<span class='badge badge-success'>04.25.2022 6:05:17 PM</span>
+<span class='badge badge-danger'>04.25.2022 6:05:17 PM</span>
 <span class='badge badge-default'>00:00:00:000</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=9</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
@@ -496,9 +472,9 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:28:42 PM</td>
+        <td>6:05:17 PM</td>
         <td>
-          Starting Test enterEmploymentHistory
+          Starting Test inValidateOrganizationLogin
         </td>
       </tr>
   </tbody>
@@ -511,9 +487,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">enterEmploymentHistory</p>
+            <p class="name">inValidateOrganizationLogin</p>
             <p class="text-sm">
-              <span>3:28:42 PM</span> / <span>00:00:00:000</span>
+              <span>6:05:18 PM</span> / <span>00:00:00:000</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -521,9 +497,9 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">enterEmploymentHistory</h5>
-<span class='badge badge-success'>04.25.2022 3:28:42 PM</span>
-<span class='badge badge-danger'>04.25.2022 3:28:42 PM</span>
+<h5 class="test-status text-pass">inValidateOrganizationLogin</h5>
+<span class='badge badge-success'>04.25.2022 6:05:18 PM</span>
+<span class='badge badge-danger'>04.25.2022 6:05:18 PM</span>
 <span class='badge badge-default'>00:00:00:000</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=10</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
@@ -536,14 +512,7 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>3:28:42 PM</td>
-        <td>
-          Success
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log pass-bg">Pass</span></td>
-        <td>3:28:42 PM</td>
+        <td>6:05:18 PM</td>
         <td>
           
     <div class="row mb-3"><div class="col-md-3">
@@ -554,9 +523,9 @@
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>3:28:42 PM</td>
+        <td>6:05:18 PM</td>
         <td>
-          enterEmploymentHistoryTest Passed
+          inValidateOrganizationLogin: Test Passed
         </td>
       </tr>
   </tbody>
@@ -564,25 +533,25 @@
 </div>
           </div>
         </li>
-        <li class="test-item"  status="pass" test-id="11"
+        <li class="test-item"  status="fail" test-id="11"
           author=""
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">validateEmployeeDetailsInEmployeeDashboard</p>
+            <p class="name">AdminLogin</p>
             <p class="text-sm">
-              <span>3:28:42 PM</span> / <span>00:00:00:000</span>
-              <span class="badge pass-bg log float-right">Pass</span>
+              <span>6:05:18 PM</span> / <span>00:00:05:475</span>
+              <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">validateEmployeeDetailsInEmployeeDashboard</h5>
-<span class='badge badge-success'>04.25.2022 3:28:42 PM</span>
-<span class='badge badge-danger'>04.25.2022 3:28:42 PM</span>
-<span class='badge badge-default'>00:00:00:000</span>
+<h5 class="test-status text-fail">AdminLogin</h5>
+<span class='badge badge-success'>04.25.2022 6:05:18 PM</span>
+<span class='badge badge-danger'>04.25.2022 6:05:23 PM</span>
+<span class='badge badge-default'>00:00:05:475</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=11</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
@@ -594,9 +563,16 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:28:42 PM</td>
+        <td>6:05:18 PM</td>
         <td>
-          Starting Test validateEmployeeDetailsInEmployeeDashboard
+          Starting Test AdminLogin
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>6:05:23 PM</td>
+        <td>
+          AdminLogin: Test Failed
         </td>
       </tr>
   </tbody>
@@ -604,25 +580,25 @@
 </div>
           </div>
         </li>
-        <li class="test-item"  status="pass" test-id="12"
+        <li class="test-item"  status="fail" test-id="12"
           author=""
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">validateEmployeeDetailsInEmployeeDashboard</p>
+            <p class="name">LoginWithRemember</p>
             <p class="text-sm">
-              <span>3:28:45 PM</span> / <span>00:00:00:000</span>
-              <span class="badge pass-bg log float-right">Pass</span>
+              <span>6:05:23 PM</span> / <span>00:00:07:089</span>
+              <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">validateEmployeeDetailsInEmployeeDashboard</h5>
-<span class='badge badge-success'>04.25.2022 3:28:45 PM</span>
-<span class='badge badge-danger'>04.25.2022 3:28:45 PM</span>
-<span class='badge badge-default'>00:00:00:000</span>
+<h5 class="test-status text-fail">LoginWithRemember</h5>
+<span class='badge badge-success'>04.25.2022 6:05:23 PM</span>
+<span class='badge badge-danger'>04.25.2022 6:05:30 PM</span>
+<span class='badge badge-default'>00:00:07:089</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=12</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
@@ -633,28 +609,17 @@
   <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
   <tbody>
       <tr class="event-row">
-        <td><span class="badge log pass-bg">Pass</span></td>
-        <td>3:28:45 PM</td>
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>6:05:23 PM</td>
         <td>
-          Success
+          Starting Test LoginWithRemember
         </td>
       </tr>
       <tr class="event-row">
-        <td><span class="badge log pass-bg">Pass</span></td>
-        <td>3:28:45 PM</td>
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>6:05:30 PM</td>
         <td>
-          
-    <div class="row mb-3"><div class="col-md-3">
-<img data-featherlight='img.png' src="img.png">
-    
-    </div></div>
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log pass-bg">Pass</span></td>
-        <td>3:28:45 PM</td>
-        <td>
-          validateEmployeeDetailsInEmployeeDashboardTest Passed
+          LoginWithRemember: Test Failed
         </td>
       </tr>
   </tbody>
@@ -676,25 +641,25 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Apr 25, 2022 03:28:22 PM</h3>
+<h3>Apr 25, 2022 06:04:50 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Apr 25, 2022 03:28:46 PM</h3>
+<h3>Apr 25, 2022 06:05:31 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-pass">Tests Passed</p>
-<h3>12</h3>
+<h3>8</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-fail">Tests Failed</p>
-<h3>0</h3>
+<h3>4</h3>
 </div></div>
 </div>
 </div>
@@ -710,12 +675,12 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'>
-<b>12</b> tests passed
+<div><small data-tooltip='66%'>
+<b>8</b> tests passed
 </small>
 </div>
 <div>
-<small data-tooltip='0%'><b>0</b> tests failed,
+<small data-tooltip='33%'><b>4</b> tests failed,
 <b>0</b> skipped, <b data-tooltip='0%'>0</b> others
 </small>
 </div>
@@ -733,10 +698,10 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='75%'><b>18</b> events passed</small></div>
+<div><small data-tooltip='40%'><b>8</b> events passed</small></div>
 <div>
-<small data-tooltip='0%'><b>0</b> events failed,
-<b data-tooltip='%'>6</b> others
+<small data-tooltip='20%'><b>4</b> events failed,
+<b data-tooltip='%'>8</b> others
 </small>
 </div>
 </div>
@@ -752,7 +717,7 @@
 </div></div>
 <script>
 var timeline = {
-"enterEmployeePersonalDetails":0.003,"enterEmployeePersonalDetails":0.002,"enterEmployeeEducationalDetails":0,"enterEmployeeEducationalDetails":0.001,"enterContactDetails":0,"enterContactDetails":0,"enterBankDetails":0,"enterBankDetails":0,"enterEmploymentHistory":0,"enterEmploymentHistory":0,"validateEmployeeDetailsInEmployeeDashboard":0,"validateEmployeeDetailsInEmployeeDashboard":0
+"validateEmployeeLogin":17.088,"validateAdminLogin":6.418,"validateOrganizationLogin":0,"validateOrganizationLogin":0.003,"inValidateEmployeeLogin":0,"inValidateEmployeeLogin":0,"inValidateAdminLogin":0,"inValidateAdminLogin":0,"inValidateOrganizationLogin":0,"inValidateOrganizationLogin":0,"AdminLogin":5.475,"LoginWithRemember":7.089
 };
 </script>
 <div class="row">
@@ -761,8 +726,8 @@ var timeline = {
 <script>
 var statusGroup = {
 parentCount: 5,
-passParent: 12,
-failParent: 0,
+passParent: 8,
+failParent: 4,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
@@ -778,11 +743,11 @@ warningGrandChild: 0,
 skipGrandChild: 0,
 infoGrandChild: 0,
 eventsCount: 5,
-passEvents: 18,
-failEvents: 0,
+passEvents: 8,
+failEvents: 4,
 warningEvents: 0,
 skipEvents: 0,
-infoEvents: 6
+infoEvents: 8
 };
 </script>        </div>
       </div>
