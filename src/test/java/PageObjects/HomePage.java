@@ -14,7 +14,7 @@ public class HomePage {
     static By whatWeDo = By.xpath("//a[@href='#whatWeDo']");
     static By aboutUs = By.xpath("(//a[@href='#aboutUs'])[1]");
     static By industries = By.xpath("(//a[@href='#clients'])[1]");
-    static By login = By.xpath("//button[@class='btn login']");
+    public static By login = By.xpath("//button[@class='btn login']");
     static By homeBottom = By.xpath("(//a[@href='#top-home'])[2]");
     static By ourClients = By.xpath("(//a[@href='#clients'])[2]");
     static By aboutUsBottom = By.xpath("(//a[@href='#aboutUs'])[2]");
