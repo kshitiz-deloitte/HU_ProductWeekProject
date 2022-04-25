@@ -29,7 +29,7 @@ public class OrganizationDashboardTest extends BaseClass {
         // login into the Organization Dashboard
         homePage.clickLogin();
         loginpage.enterUsername(properties.getProperty("signin_company_name"));
-        loginpage.enterPassword(properties.getProperty("Signin_password"));
+        loginpage.enterPassword(properties.getProperty("signin_password"));
         loginpage.selectRole(role[2]);
         loginpage.clickLogin();
         Thread.sleep(2000);
