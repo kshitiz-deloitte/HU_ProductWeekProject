@@ -11,6 +11,7 @@ public class EmployeeDashboardTest extends BaseClass {
     HomePage homePage;
     Loginpage loginPage;
     EmployeeDashboardPage employeeDashboardPage;
+    String userDir = System.getProperty("user.dir");
 
     @Test(priority = 1)
     public void initialize() throws InterruptedException {
@@ -52,17 +53,17 @@ public class EmployeeDashboardTest extends BaseClass {
     @Test(priority = 5)
     public void validatingUploadAPM() throws InterruptedException {
         Thread.sleep(2000);
-        employeeDashboardPage.uploadAadhar();
+        employeeDashboardPage.uploadAadhar(userDir+"\\"+properties.getProperty("aadharimg"));
         Thread.sleep(2000);
-        employeeDashboardPage.uploadPan();
+        employeeDashboardPage.uploadPan(userDir+"\\"+properties.getProperty("panimg"));
         Thread.sleep(2000);
-        employeeDashboardPage.uploadMarksheet();
+        employeeDashboardPage.uploadMarksheet(userDir+"\\"+properties.getProperty("marksheetimg"));
     }
 
     @Test(priority = 6)
     public void validatingErrorMsgUploadAPM() throws InterruptedException {
         Thread.sleep(2000);
-        employeeDashboardPage.errorMsg();
+        employeeDashboardPage.errorMsg(userDir+"\\"+properties.getProperty("video"));
         Thread.sleep(2000);
     }
 
