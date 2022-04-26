@@ -2,12 +2,10 @@ package Test;
 
 import PageObjects.*;
 import PreRequisites.BaseClass;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class AddOrEditEmployeeDetailsTest extends BaseClass {
     HomePage homePage;
