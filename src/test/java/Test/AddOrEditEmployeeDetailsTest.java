@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 public class AddOrEditEmployeeDetailsTest extends BaseClass {
-    WebDriverWait wait;
+
     HomePage homePage;
     Loginpage loginPage;
     PersonalInformationPage personalInformationPage;

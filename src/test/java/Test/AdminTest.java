@@ -8,21 +8,15 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
-import PreRequisites.BaseClass;
 import PageObjects.Loginpage;
-
-import java.io.File;
 import java.util.List;
-
-import static PageObjects.AdminDashboardPage.arrowButton;
 
 public class AdminTest extends BaseClass {
     @BeforeTest
     public void loginToAdmin() {
+        OpenDriver(properties.getProperty("url"));
         HomePage home = new HomePage(driver);
         home.clickLogin();
-
         Loginpage login = new Loginpage(driver);
         login.enterUsername(properties.getProperty("login_admin_username"));
         login.enterPassword(properties.getProperty("login_password"));
@@ -31,7 +25,7 @@ public class AdminTest extends BaseClass {
     }
 
     // TC001-Positive Test Case-(Whether the arrow mark is working fine or not)
-    @Test
+    @Test(priority = 1)
     public void arrowMarkVerification() throws InterruptedException {
         List<WebElement> arrow = driver.findElements(By.xpath("//*[@id=\"filter\"]"));
         int listNumberofArrow = arrow.size();
@@ -39,7 +33,7 @@ public class AdminTest extends BaseClass {
     }
 
     // TC002-Positive Test Case-(Choosen company name will shows up or not)
-    @Test
+    @Test(priority = 2)
     public void companyNameSearch() throws InterruptedException {
         String compName = "Amazon";
         AdminDashboardPage adminDash = new AdminDashboardPage(driver);
@@ -53,7 +47,7 @@ public class AdminTest extends BaseClass {
     }
 
     // TC003-Positive Test Case(Verifying whether the verify button working fine or not)
-    @Test
+    @Test(priority = 3)
     public void verifyButton() throws InterruptedException {
         WebElement verifyButtonWorking = driver.findElement(By.xpath("//button[@class=\"button-four\"]"));
         verifyButtonWorking.click();
@@ -66,7 +60,7 @@ public class AdminTest extends BaseClass {
     }
 
     // TC004-Negative Test Case(Candidate's Details are not available when the requested to Admin but when the Admin either Reject or Accept the request the Details will be shown in website)
-    @Test
+    @Test(priority = 4)
     public void candidatesDetails() throws InterruptedException {
         AdminDashboardPage adminDash = new AdminDashboardPage(driver);
         String listNumber = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div/table/tfoot/div/div/p[2]")).getText();
@@ -92,7 +86,7 @@ public class AdminTest extends BaseClass {
     }
 
     // TC005-Negative Test Case(Without reading the instruction Admin can either reject or accept the request)
-    @Test
+    @Test(priority = 5)
     public void acceptORrejectWithoutReadingInstruction() throws InterruptedException {
         AdminDashboardPage adminDash = new AdminDashboardPage(driver);
         Thread.sleep(3000);
