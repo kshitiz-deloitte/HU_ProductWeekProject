@@ -14,42 +14,39 @@ public class EducationalInformationPage {
     static By yearOfPassingPath = By.xpath("//*[@id=\"yearOfPassing\"]");
     static By nextBtnPath = By.xpath("//span[contains(text(),'Next')]//parent::button");
 
+    // Constructor For the Class to initialize the driver
     public EducationalInformationPage(WebDriver driver)
     {
         this.driver=driver;
     }
 
+    // Enter The Highest Education Degree in Educational Information Page
     public void enterHighestEducationDegree(String highestEducationDegree) {
-        // Enter The Highest Education Degree in Educational Information Page
         driver.findElement(highestEducationDegreePath).sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));;
         driver.findElement(highestEducationDegreePath).sendKeys(highestEducationDegree);
     }
-
+    // Enter College Name in Educational Information Page
     public void enterCollegeName(String collegeName){
-        // Enter College Name in Educational Information Page
         driver.findElement(collegeNamePath).sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));;
         driver.findElement(collegeNamePath).sendKeys(collegeName);
     }
-
+    // Enter University Name in Educational Information Page
     public void enterUniversityName(String universityName){
-        // Enter University Name in Educational Information Page
         driver.findElement(universityPath).sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));;
         driver.findElement(universityPath).sendKeys(universityName);
     }
-
+    // Enter CPI in Educational Information Page
     public void enterCPI(String CPI){
-        // Enter CPI in Educational Information Page
         driver.findElement(cpiPath).sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));;
         driver.findElement(cpiPath).sendKeys(CPI);
     }
-
+    // Enter Year Of Passing in Educational Information Page
     public void enterYearOfPassing(String yearOfPassing){
-        // Enter Year Of Passing in Educational Information Page
         driver.findElement(yearOfPassingPath).sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));;
         driver.findElement(yearOfPassingPath).sendKeys(yearOfPassing);
     }
+    // Click Next Button in Educational Information Page
     public void clickNextButton(){
-        // Click Next Button in Educational Information Page
         JavascriptExecutor executor = (JavascriptExecutor)driver;
         executor.executeScript("arguments[0].click();", driver.findElement(nextBtnPath));
     }

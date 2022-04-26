@@ -7,6 +7,7 @@ import PreRequisites.BaseClass;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 
@@ -96,5 +97,11 @@ public class EmployeeSignupTest extends BaseClass {
         signup.clickSignUp();
         Assert.assertEquals(signup.errorMessage(),properties.getProperty("PasswordErrorMessage"));
 
+    }
+
+    @AfterTest
+    public void closeDriver(){
+        System.out.println("Close Driver");
+        driver.quit();
     }
 }

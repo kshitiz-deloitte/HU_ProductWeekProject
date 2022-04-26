@@ -3,6 +3,7 @@ package Test;
 import PageObjects.HomePage;
 import PreRequisites.BaseClass;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 public class HomePageTest extends BaseClass{
@@ -52,5 +53,11 @@ public class HomePageTest extends BaseClass{
         home.clickAboutUsBottom();
         Assert.assertEquals(driver.getCurrentUrl(),properties.getProperty("aboutUsUrl"));
 
+    }
+
+    @AfterTest
+    public void closeDriver(){
+        System.out.println("Close Driver");
+        driver.quit();
     }
 }

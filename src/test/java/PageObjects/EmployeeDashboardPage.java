@@ -1,5 +1,6 @@
 package PageObjects;
 
+import org.checkerframework.checker.units.qual.A;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -7,6 +8,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EmployeeDashboardPage {
 
@@ -26,16 +30,20 @@ public class EmployeeDashboardPage {
     static By txt = By.xpath("//*[@id=\"root\"]/div/div[1]/div[2]/p");
     static By err = By.xpath("//p[@class='red']");
 
-    static By dropdown1 = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[1]/div/div[1]/div[2]/span[1]/svg");
-    static By dropdown2 = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[2]/div/div[1]/div[2]/span[1]/svg");
-    static By dropdown3 = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[3]/div/div[1]/div[2]/span[1]/svg");
-    static By dropdown4 = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[4]/div/div[1]/div[2]/span[1]/svg");
-    static By dropdown5 = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[5]/div/div[1]/div[2]/span[1]/svg");
-    static By dropup1 = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[1]/div/div[1]/div[2]/span[1]/svg");
-    static By dropup2 = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[2]/div/div[1]/div[2]/span[1]/svg");
-    static By dropup3 = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[3]/div/div[1]/div[2]/span[1]/svg");
-    static By dropup4 = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[4]/div/div[1]/div[2]/span[1]/svg");
-    static By dropup5 = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[5]/div/div[1]/div[2]/span[1]/svg");
+    static By dropdown1 = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[1]/div/div[1]/div[2]");
+    static By dropdown2 = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[2]/div/div[1]/div[2]");
+    static By dropdown3 = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[3]/div/div[1]/div[2]");
+    static By dropdown4 = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[4]/div/div[1]/div[2]");
+    static By dropdown5 = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[5]/div/div[1]/div[2]");
+    static By personalInfoPath = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[1]/div/div[2]/div/div/div/div/p[2]");
+    static By educationInfoPath = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[2]/div/div[2]/div/div/div/div//child::p[2]");
+    static By contactInfoPath = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[3]/div/div[2]/div/div/div/div/p[2]");
+    static By bankDetailsPath = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[4]/div/div[2]/div/div/div/div/p[2]");
+    static By employmentHistoryPath = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[5]/div/div[2]/div/div/div/div/p[2]");
+
+
+    List<WebElement> empDetailsElementsList;
+    ArrayList<String> empDetailsList;
 
     //Driver Inialtize using Parameterized Constructor
     public EmployeeDashboardPage(WebDriver driver) {
@@ -132,8 +140,31 @@ public class EmployeeDashboardPage {
         JavascriptExecutor executor = (JavascriptExecutor)driver;
         executor.executeScript("arguments[0].click();", element);
     }
+    // Add Employee Data in a ArrayList
+    public void addEmployeeDataIntoArrayList(By path) throws InterruptedException {
+        Thread.sleep(4000);
+        empDetailsElementsList = driver.findElements(path);
+        for(WebElement element: empDetailsElementsList){
+            String detail = element.getText().trim();
+            if (!(detail.equals("") && empDetailsList.contains(detail)))
+                empDetailsList.add(detail);
+        }
+    }
 
-
-
-
+    public ArrayList<String> getEmployeeDetails() throws InterruptedException {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated(dropdown2));
+        empDetailsList = new ArrayList<>();
+        addEmployeeDataIntoArrayList(personalInfoPath);
+        driver.findElement(dropdown2).click();
+        addEmployeeDataIntoArrayList(educationInfoPath);
+        driver.findElement(dropdown3).click();
+        addEmployeeDataIntoArrayList(contactInfoPath);
+        driver.findElement(dropdown4).click();
+        addEmployeeDataIntoArrayList(bankDetailsPath);
+        driver.findElement(dropdown5).click();
+        addEmployeeDataIntoArrayList(employmentHistoryPath);
+        System.out.println(empDetailsList);
+        driver.findElement(dropdown1).click();
+        return empDetailsList;
+    }
 }
