@@ -7,7 +7,7 @@ import PreRequisites.BaseClass;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class EmployeeDashboardTest extends BaseClass {
+public class EmployeeDashboardTest extends BaseClass{
     HomePage homePage;
     Loginpage loginPage;
     EmployeeDashboardPage employeeDashboardPage;

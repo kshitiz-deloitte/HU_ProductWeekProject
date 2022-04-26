@@ -14,10 +14,6 @@ import java.time.Duration;
 
 public class EmployeeSignupTest extends BaseClass {
 
-    String successMessage = "Sign-Up successfull";
-    String userErrorMessage = "Username and Mail Id should be unique !!";
-    String PasswordErrorMessage = "Password should be more than five digits !!";
-
     HomePage home;
     Loginpage login;
     EmployeeSignupPage signup;
@@ -26,16 +22,14 @@ public class EmployeeSignupTest extends BaseClass {
     public void validateEmployeeSignup() throws Exception
     {
         OpenDriver(properties.getProperty("url"));
+        System.out.println(properties.getProperty("url"));
         home = new HomePage(driver);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         home.clickLogin();
 
         login = new Loginpage(driver);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         login.clickSignUp();
 
         signup = new EmployeeSignupPage(driver);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         signup.enterUsername(properties.getProperty("signup_emp_new_username"));
         signup.enterMailId(properties.getProperty("signup_emp_new_mailId"));
         signup.enterPassword1(properties.getProperty("signup_emp_password1"));
@@ -43,9 +37,9 @@ public class EmployeeSignupTest extends BaseClass {
         signup.selectOrganization(properties.getProperty("signup_emp_organization"));
         signup.clickSignUp();
 
-        new WebDriverWait(driver, 20).until(ExpectedConditions.alertIsPresent());
+        new WebDriverWait(driver, 5).until(ExpectedConditions.alertIsPresent());
 
-        Assert.assertEquals(driver.switchTo().alert().getText(),successMessage);
+        Assert.assertEquals(driver.switchTo().alert().getText(),properties.getProperty("successMessage"));
 
         try {
             driver.switchTo().alert().accept();
@@ -59,11 +53,9 @@ public class EmployeeSignupTest extends BaseClass {
     @Test(priority = 2)
     public void InvalidateSignupByUsername() throws Exception
     {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         try {
             login = new Loginpage(driver);
             login.clickSignUp();
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         }
         catch (Exception e)
         {
@@ -82,7 +74,7 @@ public class EmployeeSignupTest extends BaseClass {
         signup.enterPassword2(properties.getProperty("signup_emp_password2"));
         signup.selectOrganization(properties.getProperty("signup_emp_organization"));
         signup.clickSignUp();
-        Assert.assertEquals(driver.findElement(signup.errorMessage).getAttribute("textContent"),userErrorMessage);
+        Assert.assertEquals(signup.errorMessage(),properties.getProperty("userErrorMessage"));
 
     }
 
@@ -100,7 +92,7 @@ public class EmployeeSignupTest extends BaseClass {
         signup.enterPassword2("");
         signup.selectOrganization(properties.getProperty("signup_emp_organization"));
         signup.clickSignUp();
-        Assert.assertEquals(driver.findElement(signup.errorMessage).getAttribute("textContent"),PasswordErrorMessage);
+        Assert.assertEquals(signup.errorMessage(),properties.getProperty("PasswordErrorMessage"));
 
     }
 }
