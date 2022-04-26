@@ -1,6 +1,7 @@
 package PageObjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
 public class FinalStepPage {
@@ -12,6 +13,7 @@ public class FinalStepPage {
     }
 
     public void clickFinishButton(){
-        driver.findElement(finishBtnPath).click();
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        executor.executeScript("arguments[0].click();", driver.findElement(finishBtnPath));
     }
 }

@@ -4,13 +4,16 @@ import PageObjects.EmployeeDashboardPage;
 import PageObjects.HomePage;
 import PageObjects.Loginpage;
 import PreRequisites.BaseClass;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class EmployeeDashboardTest extends BaseClass {
+public class EmployeeDashboardTest extends BaseClass{
     HomePage homePage;
     Loginpage loginPage;
     EmployeeDashboardPage employeeDashboardPage;
+    String userDir = System.getProperty("user.dir");
 
+    //Login into Employee Dashboard with valid credentials
     @Test(priority = 1)
     public void initialize() throws InterruptedException {
         Thread.sleep(2000);
@@ -24,28 +27,58 @@ public class EmployeeDashboardTest extends BaseClass {
         Thread.sleep(2000);
         loginPage.clickLogin();
     }
+
+    //Validating Kyc Portal logo and Employee Dashboard Text is visible or not
     @Test(priority = 2)
-    public void validatingL() throws InterruptedException {
+    public void validatingLT() throws InterruptedException {
         employeeDashboardPage = new EmployeeDashboardPage(driver);
         Thread.sleep(2000);
-        employeeDashboardPage.verifyLogo();
+        employeeDashboardPage.verifyLogoAndText();
         Thread.sleep(2000);
     }
 
+    //Validating Update Link under Quicklinks
     @Test(priority = 3)
+    public void validatingQLUpdate() throws InterruptedException {
+        Thread.sleep(2000);
+        employeeDashboardPage.verifyQuicklinksU();
+        Thread.sleep(2000);
+    }
+
+    //Negative Test Case - Validating Home Link under Quicklinks and checking whether user has been logged out or not
+    @Test(priority = 4)
+    public void validatingQLH() throws InterruptedException {
+        Thread.sleep(2000);
+        employeeDashboardPage.verifyQuicklinksH();
+        String btnTxt = homePage.getButtonText();
+        driver.navigate().back();
+        Assert.assertEquals(btnTxt, "Logout");
+    }
+
+    //Validating By uploading Aadhar Pan and Marksheet
+    @Test(priority = 5)
     public void validatingUploadAPM() throws InterruptedException {
         Thread.sleep(2000);
-        employeeDashboardPage.uploadAadhar();
+        employeeDashboardPage.uploadAadhar(userDir+"\\"+properties.getProperty("aadharimg"));
         Thread.sleep(2000);
-        employeeDashboardPage.uploadPan();
+        employeeDashboardPage.uploadPan(userDir+"\\"+properties.getProperty("panimg"));
         Thread.sleep(2000);
-        employeeDashboardPage.uploadMarksheet();
+        employeeDashboardPage.uploadMarksheet(userDir+"\\"+properties.getProperty("marksheetimg"));
     }
 
-    @Test(priority = 4)
+    //Validating the error message By uploading files more than 2mb
+    @Test(priority = 6)
     public void validatingErrorMsgUploadAPM() throws InterruptedException {
         Thread.sleep(2000);
-        employeeDashboardPage.errorMsg();
+        employeeDashboardPage.errorMsg(userDir+"\\"+properties.getProperty("video"));
+        Thread.sleep(2000);
+    }
+
+    //logging out
+    @Test(priority = 7)
+    public void validatingLogout() throws InterruptedException {
+        Thread.sleep(2000);
+        employeeDashboardPage.logout();
         Thread.sleep(2000);
     }
 

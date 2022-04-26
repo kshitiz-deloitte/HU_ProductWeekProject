@@ -1,19 +1,13 @@
 package PageObjects;
 
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-
-import java.io.File;
-import java.io.IOException;
 
 public class AdminDashboardPage {
     WebDriver driver;
 
     //Arrow.Verify and filter button xpaths
-    public static By arrowButton = By.xpath("//*[@id=\"filter\"]");
+    public static By arrowButton = By.xpath("//select[@id=\"filter\"]");
     static By fileterButton = By.xpath("//button[@class=\"btn btn-primary button-six button-color-blue\"]");
 
     //Searching company Name and Search button xpaths
@@ -35,26 +29,27 @@ public class AdminDashboardPage {
     static By instruction_contactInformation = By.xpath("/(//input[@id=\"personalInformation\"])[3]");
     static By instruction_bankDetails = By.xpath("(//input[@id=\"personalInformation\"])[4]");
     static By instruction_employementHistory = By.xpath("(//input[@id=\"personalInformation\"])[5]");
-    static By kycStatus;
-    static By listNumber;
 
     //Input Message xpaths
     static By messageInput = By.xpath("//input[@id=\"outlined-basic\"]");
 
-    //For logout Button
-    static By logoutButton = By.xpath("//button[@class=\"btn login\"]");
+    //recently added
+    static By filt = By.xpath("//*[@id=\"filter\"]");
+    static By compname = By.xpath("//*[@id=\"filter\"]/option[4]");
+    static By search = By.xpath("//*[@id=\\\"root\\\"]/div/div[2]/div[2]/div/div/table/tbody/tr[1]/td[3]");
+    static By verifybtn = By.xpath("//button[@class=\"button-four\"]");
+    static By lstno1 = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div/table/tfoot/div/div/p[2]");
+    static By kyc = By.xpath("//*[@id=\\\"root\\\"]/div/div[2]/div[2]/div/div/table/tbody/tr[\" + Integer.toString(row) + \"]/td[4]/p");
+    static By verify = By.xpath("//*[@id=\\\"root\\\"]/div/div[2]/div[2]/div/div/table/tbody/tr[\" + Integer.toString(row) + \"]/td[5]/button");
+    static By fields = By.xpath("//*[@id=\"root\"]/div/div[2]/div/div[1]/div[1]/div/div[2]/div/div/div/div[3]/p[2]");
+    static By rowpgarr = By.xpath("//button[@title=\"Next page\"]");
+    static By lstno2 = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div/table/tfoot/div/div/p[2]");
+    //static By beforekycstatus = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div/table/tbody/tr[" + Integer.toString() + "]/td[4]/p");
+
+
 
     public AdminDashboardPage(WebDriver driver){
         this.driver = driver;
-    }
-
-    public String getKYCStatus(int row){
-        kycStatus = By.xpath("//*[@id='root']/div/div[2]/div[2]/div/div/table/tbody/tr["+row+"]/td[4]/p");
-        return driver.findElement(kycStatus).getText();
-    }
-    public String getListNumber(){
-        listNumber =  By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div/table/tfoot/div/div/p[2]");
-         return driver.findElement(listNumber).getText();
     }
 
     public void clickRejectButton(){
@@ -100,6 +95,29 @@ public class AdminDashboardPage {
     public void clickInstructionBankDetails(){
         driver.findElement(instruction_bankDetails).click();
     }
-    public void clickInstructionEmployementHistory(){driver.findElement(instruction_employementHistory).click();}
-    public void clickLogoutButton(){driver.findElement(logoutButton).click();}
+    public void clickInstructionEmployementHistory(){
+        driver.findElement(instruction_employementHistory).click();
+    }
+
+    //recently added functions
+    public void filter(){ driver.findElement(filt).click(); }
+
+    public void comp(){ driver.findElement(compname).click(); }
+
+    public void search(){ driver.findElement(search).getText(); }
+
+    public void verifyBtnWorking(){ driver.findElement(verifybtn).click(); }
+
+    public void listNumber1(){ String listno = driver.findElement(lstno1).getText(); }
+
+    public void kycstat(){ driver.findElement(kyc).getText(); }
+
+    public void verify(){ driver.findElement(verify).click(); }
+
+    public void field(){ driver.findElement(fields).getText(); }
+
+    public void rowperPageArrow(){ driver.findElement(rowpgarr).click(); }
+
+    public void  listNumber2(){ driver.findElement(lstno2).getText(); }
+
 }

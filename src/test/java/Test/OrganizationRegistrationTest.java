@@ -13,15 +13,16 @@ import org.testng.annotations.Test;
 public class OrganizationRegistrationTest extends BaseClass {
 
     // declaring variable
-    OrganizationRegistrationPage organizationRegistrationPage=null;
+    OrganizationRegistrationPage organizationRegistrationPage = null;
     WebElement button;
 
     // check url is opening or not
     @Test(priority = 1)
-    public void checkUrlIsOpeningOrNot(){
+    public void checkUrlIsOpeningOrNot() {
         // open url
         OpenDriver(properties.getProperty("url"));
     }
+
     // check user is registering or not
     @Test(priority = 2)
     public void checkRegistration() throws Exception {
@@ -40,12 +41,12 @@ public class OrganizationRegistrationTest extends BaseClass {
         // handling alert
         try {
             driver.switchTo().alert();
-        }
-        catch (NoAlertPresentException e){
+        } catch (NoAlertPresentException e) {
             // not pop up not registered
             Assert.fail("Not Registered Successfully");
         }
     }
+
     @Test(priority = 3)
     public void checkRegistrationFailedSuggestion() throws Exception {
         // refreshing web page
@@ -58,22 +59,23 @@ public class OrganizationRegistrationTest extends BaseClass {
         // handling alert
         try {
             driver.switchTo().alert();
-        }
-        catch (NoAlertPresentException e){
+        } catch (NoAlertPresentException e) {
             // No error alert pop uo
             Assert.fail("Not showing Error Alert");
         }
     }
+
     @Test(priority = 4)
     public void checkPasswordToggle() throws Exception {
         Thread.sleep(2000);
         // checking password toggle is working or not
-        Assert.assertTrue(organizationRegistrationPage.password().isEnabled(),"Password toggle is not enabled");
+        Assert.assertTrue(organizationRegistrationPage.password().isEnabled(), "Password toggle is not enabled");
         // clicking password visibility toggle
         organizationRegistrationPage.clickPasswordToggle();
     }
+
     // setting data from propertieserty file into registration page form
-    public void setOrganizationRegistrationDetails(){
+    public void setOrganizationRegistrationDetails() {
         organizationRegistrationPage.setCompanyName(properties.getProperty("company_name"));
         organizationRegistrationPage.setCompanyPan(properties.getProperty("company_pan"));
         organizationRegistrationPage.setCompanyGst(properties.getProperty("company_gst"));
@@ -84,4 +86,3 @@ public class OrganizationRegistrationTest extends BaseClass {
         organizationRegistrationPage.setAddress(properties.getProperty("address"));
     }
 }
-

@@ -1,6 +1,7 @@
 package PageObjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
@@ -58,6 +59,7 @@ public class ContactInformationPage {
     }
 
     public void clickNextButton(){
-        driver.findElement(nextBtnPath).click();
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        executor.executeScript("arguments[0].click();", driver.findElement(nextBtnPath));
     }
 }
