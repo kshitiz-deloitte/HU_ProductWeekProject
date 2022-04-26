@@ -1,0 +1,6 @@
+2022-04-26 17:14:55.850 [main] INFO  Runner.Listeners - arrowMarkVerification: Succeeded
+2022-04-26 17:15:02.031 [main] INFO  Runner.Listeners - companyNameSearch: Succeeded
+2022-04-26 17:15:08.128 [main] INFO  Runner.Listeners - verifyButton: Succeeded
+2022-04-26 17:15:16.198 [main] INFO  Runner.Listeners - candidatesDetails: Failed
+2022-04-26 17:15:24.558 [main] INFO  Runner.Listeners - acceptORrejectWithoutReadingInstruction: Failed
+2022-04-26 17:15:24.903 [main] INFO  Runner.Listeners - downloadFileCheck: Succeeded

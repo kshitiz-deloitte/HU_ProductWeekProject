@@ -6,14 +6,14 @@
     </listeners>
     <test name = "KYC Portal Test">
         <classes>
-            <class name = "Test.HomePageTest" />
-            <class name = "Test.LoginTest" />
-            <class name = "Test.EmployeeSignupTest" />
-            <class name = "Test.EmployeeDashboardTest" />
-            <class name="Test.AddOrEditEmployeeDetailsTest"/>
-<!--            <class name="Test.AdminTest"/>-->
-            <class name="Test.OrganizationRegistrationTest"/>
-            <class name="Test.OrganizationDashboardTest"/>
+<!--            <class name = "Test.HomePageTest" />-->
+<!--            <class name = "Test.LoginTest" />-->
+<!--            <class name = "Test.EmployeeSignupTest" />-->
+<!--            <class name = "Test.EmployeeDashboardTest" />-->
+<!--            <class name="Test.AddOrEditEmployeeDetailsTest"/>-->
+            <class name="Test.AdminTest"/>
+<!--            <class name="Test.OrganizationRegistrationTest"/>-->
+<!--            <class name="Test.OrganizationDashboardTest"/>-->
         </classes>
     </test>
 </suite>
