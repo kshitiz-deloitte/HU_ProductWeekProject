@@ -3,6 +3,7 @@ package Runner;
 import PreRequisites.BaseClass;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import org.apache.commons.io.FileUtils;
@@ -25,23 +26,26 @@ public class Listeners extends BaseClass implements ITestListener {
     ExtentReports extentReports;
     ExtentTest test;
 
-    //attach reporter to extent reporter
-
-
     @Override
     public void onTestStart(ITestResult result) {
+        ITestListener.super.onTestStart(result);
         test=extentReports.createTest(result.getName());
-        test.log(Status.INFO, "Starting Test"+result.getName());
+        test.log(Status.INFO, "Starting Test "+result.getName());
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        test.pass(result.getName()+"Test Passed");
+        log.info(result.getName() + ": Succeeded");
+        String testName=result.getName();
+        ExtentTest test = extentReports.createTest(testName);
+        test.pass(MediaEntityBuilder.createScreenCaptureFromPath("img.png").build());
+        test.pass(testName+": Test Passed");
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
-        test.fail(result.getName()+"Test Failed");
+        log.info(result.getName() + ": Failed");
+        test.fail(result.getName()+": Test Failed");
         //getting the test name which is failed
         String testName=result.getMethod().getMethodName();
         //initializing the screenshot class
@@ -77,11 +81,10 @@ public class Listeners extends BaseClass implements ITestListener {
     @Override
     public void onStart(ITestContext context) {
         //initialize the reporter
-        myReporter=new ExtentSparkReporter("results//Reports//extentReport.html");;
+        myReporter=new ExtentSparkReporter("results/Reports/extentReport.html");
         extentReports =new ExtentReports();
 
         extentReports.attachReporter(myReporter);
-
     }
 
     @Override
