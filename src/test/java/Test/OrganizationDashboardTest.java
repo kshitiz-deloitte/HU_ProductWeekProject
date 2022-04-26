@@ -5,6 +5,7 @@ import PageObjects.Loginpage;
 import PageObjects.OrganizationDashboardPage;
 import PreRequisites.BaseClass;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 
@@ -67,5 +68,11 @@ public class OrganizationDashboardTest extends BaseClass {
         homePage= new HomePage(driver);
         loginpage=new Loginpage(driver);
         organizationDashboardPage=new OrganizationDashboardPage(driver);
+    }
+
+    @AfterTest
+    public void closeDriver(){
+        System.out.println("Close Driver");
+        driver.quit();
     }
 }

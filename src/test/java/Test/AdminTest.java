@@ -20,9 +20,9 @@ import static PageObjects.AdminDashboardPage.arrowButton;
 public class AdminTest extends BaseClass {
     @BeforeTest
     public void loginToAdmin() {
+        OpenDriver(properties.getProperty("url"));
         HomePage home = new HomePage(driver);
         home.clickLogin();
-
         Loginpage login = new Loginpage(driver);
         login.enterUsername(properties.getProperty("login_admin_username"));
         login.enterPassword(properties.getProperty("login_password"));
