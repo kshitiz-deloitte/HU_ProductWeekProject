@@ -9,8 +9,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
-
 
 public class EmployeeSignupTest extends BaseClass {
 
@@ -19,10 +17,10 @@ public class EmployeeSignupTest extends BaseClass {
     EmployeeSignupPage signup;
 
     @Test(priority = 1)
+    // Test case to validate register new employee credentials
     public void validateEmployeeSignup() throws Exception
     {
         OpenDriver(properties.getProperty("url"));
-        System.out.println(properties.getProperty("url"));
         home = new HomePage(driver);
         home.clickLogin();
 
@@ -37,7 +35,12 @@ public class EmployeeSignupTest extends BaseClass {
         signup.selectOrganization(properties.getProperty("signup_emp_organization"));
         signup.clickSignUp();
 
+        // validate successful registration alert
+        new WebDriverWait(driver, 5).until(ExpectedConditions.alertIsPresent());
+        Assert.assertEquals(driver.switchTo().alert().getText(),properties.getProperty("successMessage"));
+
         try {
+            // accept alert
             driver.switchTo().alert().accept();
         }
         catch (Exception e)
@@ -47,9 +50,11 @@ public class EmployeeSignupTest extends BaseClass {
     }
 
     @Test(priority = 2)
+    // Test case to validate error message by sign up employee by registered credentials
     public void InvalidateSignupByUsername() throws Exception
     {
         try {
+            // click login if page redirected to login page
             login = new Loginpage(driver);
             login.clickSignUp();
         }
@@ -75,6 +80,7 @@ public class EmployeeSignupTest extends BaseClass {
     }
 
     @Test(priority = 3)
+    // Test case to validate error message by signup with empty password
     public void InvalidateSignupByPassword()
     {
         signup = new EmployeeSignupPage(driver);

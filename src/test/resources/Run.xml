@@ -11,7 +11,7 @@
             <class name = "Test.EmployeeSignupTest" />
             <class name = "Test.EmployeeDashboardTest" />
             <class name="Test.AddOrEditEmployeeDetailsTest"/>
-<!--            <class name="Test.AdminTest"/>-->
+            <class name="Test.AdminTest"/>
             <class name="Test.OrganizationRegistrationTest"/>
             <class name="Test.OrganizationDashboardTest"/>
         </classes>
