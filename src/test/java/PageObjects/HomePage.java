@@ -83,4 +83,8 @@ public class HomePage {
     public WebElement organizationRegistrationButton(){
         return driver.findElement(organizationRegistration);
     }
+
+    public String getButtonText(){
+        return driver.findElement(login).getText();
+    }
 }

@@ -4,12 +4,14 @@ import PageObjects.EmployeeDashboardPage;
 import PageObjects.HomePage;
 import PageObjects.Loginpage;
 import PreRequisites.BaseClass;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class EmployeeDashboardTest extends BaseClass{
     HomePage homePage;
     Loginpage loginPage;
     EmployeeDashboardPage employeeDashboardPage;
+    String userDir = System.getProperty("user.dir");
 
     @Test(priority = 1)
     public void initialize() throws InterruptedException {
@@ -25,27 +27,50 @@ public class EmployeeDashboardTest extends BaseClass{
         loginPage.clickLogin();
     }
     @Test(priority = 2)
-    public void validatingL() throws InterruptedException {
+    public void validatingLT() throws InterruptedException {
         employeeDashboardPage = new EmployeeDashboardPage(driver);
         Thread.sleep(2000);
-        employeeDashboardPage.verifyLogo();
+        employeeDashboardPage.verifyLogoAndText();
         Thread.sleep(2000);
     }
 
     @Test(priority = 3)
-    public void validatingUploadAPM() throws InterruptedException {
+    public void validatingQLUpdate() throws InterruptedException {
         Thread.sleep(2000);
-        employeeDashboardPage.uploadAadhar();
+        employeeDashboardPage.verifyQuicklinksU();
         Thread.sleep(2000);
-        employeeDashboardPage.uploadPan();
-        Thread.sleep(2000);
-        employeeDashboardPage.uploadMarksheet();
     }
 
     @Test(priority = 4)
+    public void validatingQLH() throws InterruptedException {
+        Thread.sleep(2000);
+        employeeDashboardPage.verifyQuicklinksH();
+        String btnTxt = homePage.getButtonText();
+        driver.navigate().back();
+        Assert.assertEquals(btnTxt, "Logout");
+    }
+
+    @Test(priority = 5)
+    public void validatingUploadAPM() throws InterruptedException {
+        Thread.sleep(2000);
+        employeeDashboardPage.uploadAadhar(userDir+"\\"+properties.getProperty("aadharimg"));
+        Thread.sleep(2000);
+        employeeDashboardPage.uploadPan(userDir+"\\"+properties.getProperty("panimg"));
+        Thread.sleep(2000);
+        employeeDashboardPage.uploadMarksheet(userDir+"\\"+properties.getProperty("marksheetimg"));
+    }
+
+    @Test(priority = 6)
     public void validatingErrorMsgUploadAPM() throws InterruptedException {
         Thread.sleep(2000);
-        employeeDashboardPage.errorMsg();
+        employeeDashboardPage.errorMsg(userDir+"\\"+properties.getProperty("video"));
+        Thread.sleep(2000);
+    }
+
+    @Test(priority = 7)
+    public void validatingLogout() throws InterruptedException {
+        Thread.sleep(2000);
+        employeeDashboardPage.logout();
         Thread.sleep(2000);
     }
 
