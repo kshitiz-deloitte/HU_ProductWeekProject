@@ -86,16 +86,19 @@ public class Loginpage {
         }
     }
 
+    // method to return text in login dashboard
     public String loginDashboard()
     {
         return driver.findElement(dashboard).getAttribute("textContent");
     }
 
+    // method to return error message in the login page
     public String errorMessage()
     {
         return driver.findElement(errorMessage).getAttribute("textContent");
     }
 
+    // method to click logout button
     public void logout()
     {
         driver.findElement(logout).click();

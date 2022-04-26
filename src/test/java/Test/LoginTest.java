@@ -7,7 +7,6 @@ import PreRequisites.BaseClass;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 import java.time.Duration;
 
@@ -129,35 +128,11 @@ public class LoginTest extends BaseClass {
         login.selectRole(role[1]);
         login.clickLogin();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        String errorMessage = login.errorMessage();
-        Assert.assertEquals(properties.getProperty("error"),errorMessage);
-    }
-
-    @Test(priority = 8)
-    // Test to validate employee login by select remember me option and visit same url again
-    public void LoginWithRemember()
-    {
-        login = new Loginpage(driver);
-        login.clearUsername();
-        login.clearPassword();
-        login.enterUsername(properties.getProperty("login_emp_username"));
-        login.enterPassword(properties.getProperty("login_password"));
-        login.selectRole(role[0]);
-        login.selectRememberMe();
-        login.clickLogin();
-
-        driver.get(properties.getProperty("url"));
-        String dashboard = "";
+        String errorMessage="";
         try{
-            dashboard = login.loginDashboard();
+            errorMessage = login.errorMessage();
         }catch (Exception e){
-            Assert.assertEquals(properties.getProperty("employeeDashboard"),dashboard);
+            Assert.assertEquals(properties.getProperty("error"),errorMessage);
         }
-    }
-
-    @AfterTest
-    public void closeDriver(){
-        System.out.println("Close Driver");
-        driver.quit();
     }
 }

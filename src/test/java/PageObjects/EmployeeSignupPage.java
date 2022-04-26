@@ -99,6 +99,7 @@ public class EmployeeSignupPage {
         }
     }
 
+    // method to return error message from signup page
     public String  errorMessage()
     {
         return driver.findElement(error).getAttribute("textContent");
