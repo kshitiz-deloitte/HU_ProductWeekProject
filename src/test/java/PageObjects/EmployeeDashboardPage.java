@@ -7,9 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.List;
-
-
 public class EmployeeDashboardPage {
 
     WebDriver driver;
@@ -26,6 +23,18 @@ public class EmployeeDashboardPage {
     static By update = By.xpath("//*[@id=\"root\"]/div/div[2]/div[1]/button[1]");
     static By home = By.xpath("//*[@id=\"root\"]/div/div[2]/div[1]/button[2]");
     static By txt = By.xpath("//*[@id=\"root\"]/div/div[1]/div[2]/p");
+    static By err = By.xpath("//p[@class='red']");
+
+    static By dropdown1 = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[1]/div/div[1]/div[2]/span[1]/svg");
+    static By dropdown2 = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[2]/div/div[1]/div[2]/span[1]/svg");
+    static By dropdown3 = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[3]/div/div[1]/div[2]/span[1]/svg");
+    static By dropdown4 = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[4]/div/div[1]/div[2]/span[1]/svg");
+    static By dropdown5 = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[5]/div/div[1]/div[2]/span[1]/svg");
+    static By dropup1 = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[1]/div/div[1]/div[2]/span[1]/svg");
+    static By dropup2 = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[2]/div/div[1]/div[2]/span[1]/svg");
+    static By dropup3 = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[3]/div/div[1]/div[2]/span[1]/svg");
+    static By dropup4 = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[4]/div/div[1]/div[2]/span[1]/svg");
+    static By dropup5 = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[5]/div/div[1]/div[2]/span[1]/svg");
 
     //Driver Inialtize using Parameterized Constructor
     public EmployeeDashboardPage(WebDriver driver) {
@@ -62,7 +71,7 @@ public class EmployeeDashboardPage {
         chooseFile.sendKeys(path);
         driver.findElement(uploadbtn1).click();
         new WebDriverWait(driver, 40).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//p[@class='red']")));
-        WebElement errorMsg = driver.findElement(By.xpath("//p[@class='red']"));
+        WebElement errorMsg = driver.findElement(err);
         System.out.println(errorMsg.getText());
         Thread.sleep(2000);
 
@@ -71,7 +80,7 @@ public class EmployeeDashboardPage {
         chooseFile.sendKeys(path);
         driver.findElement(uploadbtn2).click();
         new WebDriverWait(driver, 40).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//p[@class='red']")));
-        errorMsg = driver.findElement(By.xpath("//p[@class='red']"));
+        errorMsg = driver.findElement(err);
         System.out.println(errorMsg.getText());
         Thread.sleep(2000);
 
@@ -80,7 +89,7 @@ public class EmployeeDashboardPage {
         chooseFile.sendKeys(path);
         driver.findElement(uploadbtn3).click();
         new WebDriverWait(driver, 40).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//p[@class='red']")));
-        errorMsg = driver.findElement(By.xpath("//p[@class='red']"));
+        errorMsg = driver.findElement(err);
         System.out.println(errorMsg.getText());
         Thread.sleep(2000);
 
@@ -122,6 +131,7 @@ public class EmployeeDashboardPage {
         JavascriptExecutor executor = (JavascriptExecutor)driver;
         executor.executeScript("arguments[0].click();", element);
     }
+
 
 
 
