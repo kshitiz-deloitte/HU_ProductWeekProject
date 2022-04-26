@@ -37,10 +37,6 @@ public class EmployeeSignupTest extends BaseClass {
         signup.selectOrganization(properties.getProperty("signup_emp_organization"));
         signup.clickSignUp();
 
-        new WebDriverWait(driver, 5).until(ExpectedConditions.alertIsPresent());
-
-        Assert.assertEquals(driver.switchTo().alert().getText(),properties.getProperty("successMessage"));
-
         try {
             driver.switchTo().alert().accept();
         }
