@@ -87,9 +87,4 @@ public class OrganizationRegistrationTest extends BaseClass {
         organizationRegistrationPage.setAddress(properties.getProperty("address"));
     }
 
-    @AfterTest
-    public void closeDriver(){
-        System.out.println("Close Driver");
-        driver.quit();
-    }
 }

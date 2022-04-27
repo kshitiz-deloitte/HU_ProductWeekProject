@@ -54,10 +54,4 @@ public class HomePageTest extends BaseClass{
         Assert.assertEquals(driver.getCurrentUrl(),properties.getProperty("aboutUsUrl"));
 
     }
-
-    @AfterTest
-    public void closeDriver(){
-        System.out.println("Close Driver");
-        driver.quit();
-    }
 }
