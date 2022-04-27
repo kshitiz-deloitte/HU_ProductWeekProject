@@ -7,6 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 // tests for Organization Registration Page
@@ -85,4 +86,5 @@ public class OrganizationRegistrationTest extends BaseClass {
         organizationRegistrationPage.setContactNumber(properties.getProperty("contact_number"));
         organizationRegistrationPage.setAddress(properties.getProperty("address"));
     }
+
 }

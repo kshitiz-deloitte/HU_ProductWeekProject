@@ -135,26 +135,4 @@ public class LoginTest extends BaseClass {
             Assert.assertEquals(properties.getProperty("error"),errorMessage);
         }
     }
-
-    @Test(priority = 8)
-    // Test to validate employee login by select remember me option and visit same url again
-    public void LoginWithRemember()
-    {
-        login = new Loginpage(driver);
-        login.clearUsername();
-        login.clearPassword();
-        login.enterUsername(properties.getProperty("login_emp_username"));
-        login.enterPassword(properties.getProperty("login_password"));
-        login.selectRole(role[0]);
-        login.selectRememberMe();
-        login.clickLogin();
-
-        driver.get(properties.getProperty("url"));
-        String dashboard="";
-        try{
-            dashboard = login.loginDashboard();
-        }catch (Exception e){
-            Assert.assertEquals(properties.getProperty("employeeDashboard"),dashboard);
-        }
-    }
 }

@@ -3,6 +3,7 @@ package Test;
 import PageObjects.HomePage;
 import PreRequisites.BaseClass;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 public class HomePageTest extends BaseClass{

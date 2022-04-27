@@ -1,6 +1,46 @@
+<<<<<<< HEAD
 2022-04-26 17:14:55.850 [main] INFO  Runner.Listeners - arrowMarkVerification: Succeeded
 2022-04-26 17:15:02.031 [main] INFO  Runner.Listeners - companyNameSearch: Succeeded
 2022-04-26 17:15:08.128 [main] INFO  Runner.Listeners - verifyButton: Succeeded
 2022-04-26 17:15:16.198 [main] INFO  Runner.Listeners - candidatesDetails: Failed
 2022-04-26 17:15:24.558 [main] INFO  Runner.Listeners - acceptORrejectWithoutReadingInstruction: Failed
 2022-04-26 17:15:24.903 [main] INFO  Runner.Listeners - downloadFileCheck: Succeeded
+=======
+2022-04-27 09:43:48.721 [main] INFO  Runner.Listeners - validateHomeButtons: Succeeded
+2022-04-27 09:44:21.909 [main] INFO  Runner.Listeners - validateEmployeeLogin: Succeeded
+2022-04-27 09:44:23.601 [main] INFO  Runner.Listeners - validateAdminLogin: Succeeded
+2022-04-27 09:44:25.691 [main] INFO  Runner.Listeners - validateOrganizationLogin: Succeeded
+2022-04-27 09:44:26.961 [main] INFO  Runner.Listeners - inValidateEmployeeLogin: Succeeded
+2022-04-27 09:44:28.501 [main] INFO  Runner.Listeners - inValidateAdminLogin: Succeeded
+2022-04-27 09:44:29.556 [main] INFO  Runner.Listeners - inValidateOrganizationLogin: Succeeded
+2022-04-27 09:44:35.548 [main] INFO  Runner.Listeners - AdminLoginUsingEmployeeDetails: Failed
+2022-04-27 09:45:16.676 [main] INFO  Runner.Listeners - validateEmployeeSignup: Failed
+2022-04-27 09:45:24.615 [main] INFO  Runner.Listeners - InvalidateSignupByUsername: Succeeded
+2022-04-27 09:45:26.379 [main] INFO  Runner.Listeners - InvalidateSignupByPassword: Succeeded
+2022-04-27 09:45:59.635 [main] INFO  Runner.Listeners - initialize: Succeeded
+2022-04-27 09:46:06.703 [main] INFO  Runner.Listeners - validatingLT: Failed
+2022-04-27 09:46:17.495 [main] INFO  Runner.Listeners - validatingQLUpdate: Succeeded
+2022-04-27 09:46:19.707 [main] INFO  Runner.Listeners - validatingQLH: Failed
+2022-04-27 09:46:26.484 [main] INFO  Runner.Listeners - validatingUploadAPM: Succeeded
+2022-04-27 09:47:12.369 [main] INFO  Runner.Listeners - validatingErrorMsgUploadAPM: Failed
+2022-04-27 09:47:16.843 [main] INFO  Runner.Listeners - validatingLogout: Succeeded
+2022-04-27 09:47:57.039 [main] INFO  Runner.Listeners - enterEmployeePersonalDetails: Succeeded
+2022-04-27 09:47:58.276 [main] INFO  Runner.Listeners - enterEmployeeEducationalDetails: Succeeded
+2022-04-27 09:47:59.866 [main] INFO  Runner.Listeners - enterContactDetails: Succeeded
+2022-04-27 09:48:00.563 [main] INFO  Runner.Listeners - enterBankDetails: Succeeded
+2022-04-27 09:48:01.688 [main] INFO  Runner.Listeners - enterEmploymentHistory: Succeeded
+2022-04-27 09:48:23.127 [main] INFO  Runner.Listeners - validateEmployeeDetailsInEmployeeDashboard: Failed
+2022-04-27 09:48:23.802 [main] INFO  Runner.Listeners - arrowMarkVerification: Succeeded
+2022-04-27 09:48:23.804 [main] INFO  Runner.Listeners - companyNameSearch: Succeeded
+2022-04-27 09:48:23.806 [main] INFO  Runner.Listeners - verifyButton: Succeeded
+2022-04-27 09:48:23.808 [main] INFO  Runner.Listeners - candidatesDetails: Succeeded
+2022-04-27 09:48:26.824 [main] INFO  Runner.Listeners - acceptORrejectWithoutReadingInstruction: Succeeded
+2022-04-27 09:48:57.356 [main] INFO  Runner.Listeners - checkUrlIsOpeningOrNot: Succeeded
+2022-04-27 09:49:02.340 [main] INFO  Runner.Listeners - checkRegistration: Failed
+2022-04-27 09:49:08.474 [main] INFO  Runner.Listeners - checkRegistrationFailedSuggestion: Failed
+2022-04-27 09:49:10.818 [main] INFO  Runner.Listeners - checkPasswordToggle: Succeeded
+2022-04-27 09:49:30.990 [main] INFO  Runner.Listeners - checkUrlIsOpeningOrNot: Succeeded
+2022-04-27 09:49:33.931 [main] INFO  Runner.Listeners - checkOrganizationDashboardIsOpeningOrNot: Succeeded
+2022-04-27 09:49:36.154 [main] INFO  Runner.Listeners - checkSearchingUser: Succeeded
+2022-04-27 09:49:43.430 [main] INFO  Runner.Listeners - checkSearchingUserWithChangeCase: Failed
+>>>>>>> 9b43b12129129a7c7b0f801dd403a4c70cb837dc
