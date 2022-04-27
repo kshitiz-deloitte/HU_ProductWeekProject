@@ -2,6 +2,7 @@ package PreRequisites;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
@@ -43,7 +44,7 @@ public class BaseClass {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
     // close the driver
-    @AfterTest
+    @AfterClass
     public void closeDriver(){
         System.out.println("Testing Close Driver");
         driver.quit();

@@ -98,10 +98,4 @@ public class EmployeeSignupTest extends BaseClass {
         Assert.assertEquals(signup.errorMessage(),properties.getProperty("PasswordErrorMessage"));
 
     }
-
-    @AfterTest
-    public void closeDriver(){
-        System.out.println("Close Driver");
-        driver.quit();
-    }
 }

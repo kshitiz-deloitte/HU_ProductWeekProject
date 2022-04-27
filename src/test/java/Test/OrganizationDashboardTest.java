@@ -70,9 +70,4 @@ public class OrganizationDashboardTest extends BaseClass {
         organizationDashboardPage=new OrganizationDashboardPage(driver);
     }
 
-    @AfterTest
-    public void closeDriver(){
-        System.out.println("Close Driver");
-        driver.quit();
-    }
 }
