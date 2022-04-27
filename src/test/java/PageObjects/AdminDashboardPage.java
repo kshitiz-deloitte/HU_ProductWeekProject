@@ -5,14 +5,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 import java.util.List;
 
-
 public class AdminDashboardPage {
     WebDriver driver;
-
     //Arrow.Verify and filter button xpaths
     public static By arrowButton = By.xpath("//select[@id=\"filter\"]");
     static By fileterButton = By.xpath("//button[@class=\"btn btn-primary button-six button-color-blue\"]");
