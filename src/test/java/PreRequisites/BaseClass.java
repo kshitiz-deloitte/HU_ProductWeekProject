@@ -32,7 +32,7 @@ public class BaseClass {
         role = properties.getProperty("login_user_roles").split(",");
         employeeDetails = new ArrayList<>();
         employeeDetails.addAll(Arrays.asList((properties.getProperty("emp_details").split(","))));
-        System.out.println(employeeDetails);
+        System.out.println(employeeDetails.get(0));
     }
 
     // open url into chrome driver

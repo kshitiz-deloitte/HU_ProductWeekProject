@@ -94,6 +94,5 @@ public class AddOrEditEmployeeDetailsTest extends BaseClass {
         for(int count=0; count<empDetails.size();count++){
             Assert.assertEquals(employeeDetails.get(count).toLowerCase(), empDetails.get(count).toLowerCase());
         }
-
     }
 }
