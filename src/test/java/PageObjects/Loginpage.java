@@ -4,11 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class Loginpage {
     WebDriver driver;
@@ -21,7 +17,6 @@ public class Loginpage {
     public static By login = By.xpath("//button[@class='button-one']");
 
     public static By logout = By.xpath("//button[@class='btn login']");
-    public static By rememberMe = By.xpath("//input[@type='checkbox']");
     public static By signUp = By.xpath("//a[@href='/sign-up']");
     public static By errorMessage = By.xpath("//p[@class='red']");
     public static By dashboard = By.xpath("//div[@class='dashboard-header-middle']//p");
@@ -31,12 +26,6 @@ public class Loginpage {
     public Loginpage(WebDriver driver)
     {
         this.driver=driver;
-    }
-
-    // method to select remember me option
-    public void selectRememberMe()
-    {
-        driver.findElement(rememberMe).click();
     }
 
     // method to enter username

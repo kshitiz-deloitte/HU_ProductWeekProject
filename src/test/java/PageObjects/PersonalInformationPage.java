@@ -4,6 +4,8 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class PersonalInformationPage {
     WebDriver driver;
 
@@ -23,7 +25,7 @@ public class PersonalInformationPage {
 
     // Clicks Edit Details in Personal Page
     public void clickEditDetailsButton() {
-        new WebDriverWait(driver, 20).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(editDetailsButton));
+        new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(editDetailsButton));
         driver.findElement(editDetailsButton).click();
     }
     // Enter First name in Personal Page

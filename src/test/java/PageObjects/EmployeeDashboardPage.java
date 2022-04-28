@@ -1,6 +1,5 @@
 package PageObjects;
 
-import org.checkerframework.checker.units.qual.A;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -79,7 +78,7 @@ public class EmployeeDashboardPage {
         WebElement chooseFile = driver.findElement(aadhar);
         chooseFile.sendKeys(path);
         driver.findElement(uploadbtn1).click();
-        new WebDriverWait(driver, 40).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//p[@class='red']")));
+        new WebDriverWait(driver, Duration.ofSeconds(40)).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//p[@class='red']")));
         WebElement errorMsg = driver.findElement(err);
         System.out.println(errorMsg.getText());
         Thread.sleep(2000);
@@ -88,7 +87,7 @@ public class EmployeeDashboardPage {
         chooseFile = driver.findElement(pan);
         chooseFile.sendKeys(path);
         driver.findElement(uploadbtn2).click();
-        new WebDriverWait(driver, 40).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//p[@class='red']")));
+        new WebDriverWait(driver, Duration.ofSeconds(40)).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//p[@class='red']")));
         errorMsg = driver.findElement(err);
         System.out.println(errorMsg.getText());
         Thread.sleep(2000);
@@ -97,7 +96,7 @@ public class EmployeeDashboardPage {
         chooseFile = driver.findElement(marksheet);
         chooseFile.sendKeys(path);
         driver.findElement(uploadbtn3).click();
-        new WebDriverWait(driver, 40).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//p[@class='red']")));
+        new WebDriverWait(driver, Duration.ofSeconds(40)).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//p[@class='red']")));
         errorMsg = driver.findElement(err);
         System.out.println(errorMsg.getText());
         Thread.sleep(2000);
@@ -135,7 +134,7 @@ public class EmployeeDashboardPage {
     }
 
     //Quicklinks-Home
-    public void verifyQuicklinksH() throws InterruptedException {
+    public void verifyQuicklinksH() {
         WebElement element = driver.findElement(home);
         JavascriptExecutor executor = (JavascriptExecutor)driver;
         executor.executeScript("arguments[0].click();", element);

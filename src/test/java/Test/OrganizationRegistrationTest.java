@@ -7,7 +7,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 // tests for Organization Registration Page
@@ -36,25 +35,46 @@ public class OrganizationRegistrationTest extends BaseClass {
         executor.executeScript("arguments[0].click();", button);
         Thread.sleep(2000);
         // setting data into registration form
-        setOrganizationRegistrationDetails();
+        setOrganizationRegistrationDetails(properties.getProperty("company_name"),properties.getProperty("company_pan"),properties.getProperty("company_gst"),properties.getProperty("industry")
+                ,properties.getProperty("contact_email"),properties.getProperty("password"),properties.getProperty("contact_number"),properties.getProperty("address"));        // click registration button
+        organizationRegistrationPage.pressRegister();
+        Thread.sleep(2000);
+        // handling alert
+        try {
+            driver.switchTo().alert().accept();
+        } catch (NoAlertPresentException e) {
+            // not pop up not registered
+            Assert.fail("Not Registered Unsuccessfully");
+        }
+    }
+    // check with already registered user
+    @Test(priority = 3)
+    public void checkRegistrationWithExistingData() throws Exception {
+        Thread.sleep(2000);
+        // Navigate back
+        driver.navigate().back();
+        // opening registration page
+        organizationRegistrationPage = new OrganizationRegistrationPage(driver);
+        Thread.sleep(2000);
+        // setting data into registration form
+        setOrganizationRegistrationDetails(properties.getProperty("company_name"),properties.getProperty("company_pan"),properties.getProperty("company_gst"),properties.getProperty("industry")
+        ,properties.getProperty("contact_email"),properties.getProperty("password"),properties.getProperty("contact_number"),properties.getProperty("address"));
         // click registration button
         organizationRegistrationPage.pressRegister();
+        Thread.sleep(2000);
         // handling alert
         try {
             driver.switchTo().alert();
         } catch (NoAlertPresentException e) {
             // not pop up not registered
-            Assert.fail("Not Registered Successfully");
+            System.out.println("Not Registered Successfully");
         }
     }
 
-    @Test(priority = 3)
+
+    @Test(priority = 4)
     public void checkRegistrationFailedSuggestion() throws Exception {
-        // refreshing web page
-        driver.navigate().refresh();
         Thread.sleep(2000);
-        // setting data into registration form
-        setOrganizationRegistrationDetails();
         // click registration button
         organizationRegistrationPage.pressRegister();
         // handling alert
@@ -65,8 +85,32 @@ public class OrganizationRegistrationTest extends BaseClass {
             Assert.fail("Not showing Error Alert");
         }
     }
-
-    @Test(priority = 4)
+    // checking registration with Invalid Data Format
+    @Test(priority = 5)
+    public void checkRegistrationWithInvalidFormatData() throws Exception {
+        Thread.sleep(2000);
+        // refresh window
+        driver.navigate().refresh();
+        // opening registration page
+        organizationRegistrationPage = new OrganizationRegistrationPage(driver);
+        Thread.sleep(2000);
+        // setting data into registration form
+        setOrganizationRegistrationDetails(properties.getProperty("Invalid_company_name"), properties.getProperty("Invalid_company_pan"), properties.getProperty("Invalid_company_gst"), properties.getProperty("Invalid_industry")
+                , properties.getProperty("Invalid_contact_email"), properties.getProperty("Invalid_password"), properties.getProperty("Invalid_contact_number"), properties.getProperty("Invalid_address"));
+        // click registration button
+        organizationRegistrationPage.pressRegister();
+        Thread.sleep(2000);
+        // handling alert
+        try {
+            driver.switchTo().alert().accept();
+            Assert.fail("Invalid User Registered");
+        } catch (NoAlertPresentException e) {
+            // not pop up not registered
+            System.out.println("Registered Successfully");
+        }
+    }
+    // checking Password visibility toggle button
+    @Test(priority = 6)
     public void checkPasswordToggle() throws Exception {
         Thread.sleep(2000);
         // checking password toggle is working or not
@@ -75,16 +119,16 @@ public class OrganizationRegistrationTest extends BaseClass {
         organizationRegistrationPage.clickPasswordToggle();
     }
 
-    // setting data from propertieserty file into registration page form
-    public void setOrganizationRegistrationDetails() {
-        organizationRegistrationPage.setCompanyName(properties.getProperty("company_name"));
-        organizationRegistrationPage.setCompanyPan(properties.getProperty("company_pan"));
-        organizationRegistrationPage.setCompanyGst(properties.getProperty("company_gst"));
-        organizationRegistrationPage.setIndustry(properties.getProperty("industry"));
-        organizationRegistrationPage.setContactEmail(properties.getProperty("contact_email"));
-        organizationRegistrationPage.setPassword(properties.getProperty("password"));
-        organizationRegistrationPage.setContactNumber(properties.getProperty("contact_number"));
-        organizationRegistrationPage.setAddress(properties.getProperty("address"));
+    // setting data from properties file into registration page form
+    public void setOrganizationRegistrationDetails(String  Name, String Pan, String Gst, String Industry, String Email, String Password, String Phone, String Address) {
+        organizationRegistrationPage.setCompanyName(Name);
+        organizationRegistrationPage.setCompanyPan(Pan);
+        organizationRegistrationPage.setCompanyGst(Gst);
+        organizationRegistrationPage.setIndustry(Industry);
+        organizationRegistrationPage.setContactEmail(Email);
+        organizationRegistrationPage.setPassword(Password);
+        organizationRegistrationPage.setContactNumber(Phone);
+        organizationRegistrationPage.setAddress(Address);
     }
 
 }

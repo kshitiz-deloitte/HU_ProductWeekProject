@@ -19,17 +19,17 @@ public class BankDetailsPage {
 
     // Enter Bank Name in Bank Details Page
     public void enterBankName(String bankName){
-        driver.findElement(bankNamePath).sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));;
+        driver.findElement(bankNamePath).sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
         driver.findElement(bankNamePath).sendKeys(bankName);
     }
     // Enter Account Number in Bank Details Page
     public void enterAccountNum(String accountNum){
-        driver.findElement(accountNumPath).sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));;
+        driver.findElement(accountNumPath).sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
         driver.findElement(accountNumPath).sendKeys(accountNum);
     }
     // Enter IFSC Code in Bank Details Page
     public void enterIfscCode(String ifscCode){
-        driver.findElement(ifscCodePath).sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));;
+        driver.findElement(ifscCodePath).sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
         driver.findElement(ifscCodePath).sendKeys(ifscCode);
     }
     // Click Next Button in Bank Details Page

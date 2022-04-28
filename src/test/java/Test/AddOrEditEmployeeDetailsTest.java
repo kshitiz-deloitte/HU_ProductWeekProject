@@ -20,7 +20,7 @@ public class AddOrEditEmployeeDetailsTest extends BaseClass {
 
     // Enter Employee Personal Details
     @Test(priority = 1)
-    public void enterEmployeePersonalDetails() throws InterruptedException {
+    public void enterEmployeePersonalDetails() {
         OpenDriver(properties.getProperty("url"));
         homePage= new HomePage(driver);
         loginPage=new Loginpage(driver);
