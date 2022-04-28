@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name = "Default Suite">
+    <listeners>
+        <listener class-name="Runner.Listeners"/>
+    </listeners>
+    <test name = "KYC Portal Test">
+        <classes>
+            <class name = "Test.HomePageTest" />
+            <class name = "Test.LoginTest" />
+            <class name = "Test.EmployeeSignupTest" />
+            <class name = "Test.EmployeeDashboardTest" />
+            <class name="Test.AddOrEditEmployeeDetailsTest"/>
+            <class name="Test.AdminTest"/>
+            <class name="Test.OrganizationRegistrationTest"/>
+            <class name="Test.OrganizationDashboardTest"/>
+        </classes>
+    </test>
+</suite>
