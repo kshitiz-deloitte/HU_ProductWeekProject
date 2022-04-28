@@ -22,27 +22,27 @@ public class EducationalInformationPage {
 
     // Enter The Highest Education Degree in Educational Information Page
     public void enterHighestEducationDegree(String highestEducationDegree) {
-        driver.findElement(highestEducationDegreePath).sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));;
+        driver.findElement(highestEducationDegreePath).sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
         driver.findElement(highestEducationDegreePath).sendKeys(highestEducationDegree);
     }
     // Enter College Name in Educational Information Page
     public void enterCollegeName(String collegeName){
-        driver.findElement(collegeNamePath).sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));;
+        driver.findElement(collegeNamePath).sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
         driver.findElement(collegeNamePath).sendKeys(collegeName);
     }
     // Enter University Name in Educational Information Page
     public void enterUniversityName(String universityName){
-        driver.findElement(universityPath).sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));;
+        driver.findElement(universityPath).sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
         driver.findElement(universityPath).sendKeys(universityName);
     }
     // Enter CPI in Educational Information Page
     public void enterCPI(String CPI){
-        driver.findElement(cpiPath).sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));;
+        driver.findElement(cpiPath).sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
         driver.findElement(cpiPath).sendKeys(CPI);
     }
     // Enter Year Of Passing in Educational Information Page
     public void enterYearOfPassing(String yearOfPassing){
-        driver.findElement(yearOfPassingPath).sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));;
+        driver.findElement(yearOfPassingPath).sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
         driver.findElement(yearOfPassingPath).sendKeys(yearOfPassing);
     }
     // Click Next Button in Educational Information Page

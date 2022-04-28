@@ -5,7 +5,6 @@ import PageObjects.Loginpage;
 import PageObjects.OrganizationDashboardPage;
 import PreRequisites.BaseClass;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 

@@ -3,17 +3,13 @@ package PreRequisites;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
 import java.io.FileInputStream;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Properties;
-
-import static java.util.Arrays.asList;
 
 //initialize used classes and driver
 public class BaseClass {
@@ -28,7 +24,7 @@ public class BaseClass {
     public void init() throws Exception
     {
         properties = new Properties();
-        properties.load(new FileInputStream("src/main/resources/data.properties"));
+        properties.load(new FileInputStream("src/test/resources/data.properties"));
         role = properties.getProperty("login_user_roles").split(",");
         employeeDetails = new ArrayList<>();
         employeeDetails.addAll(Arrays.asList((properties.getProperty("emp_details").split(","))));
@@ -46,7 +42,6 @@ public class BaseClass {
     // close the driver
     @AfterClass
     public void closeDriver(){
-        System.out.println("Testing Close Driver");
-        driver.quit();
+        driver.close();
     }
 }

@@ -23,15 +23,10 @@ public class LoginTest extends BaseClass {
         home = new HomePage(driver);
         home.clickLogin();
 
-        login = new Loginpage(driver);
-        login.enterUsername(properties.getProperty("login_emp_username"));
-        login.enterPassword(properties.getProperty("login_password"));
-        login.selectRole(role[0]);
-        login.clickLogin();
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(login.dashboard));
+        LoginUser(properties.getProperty("login_emp_username"),properties.getProperty("login_password"),role[0]);
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(Loginpage.dashboard));
         String dashboard = login.loginDashboard();
         Assert.assertEquals(properties.getProperty("employeeDashboard"),dashboard);
-
         login.logout();
     }
 
@@ -40,13 +35,8 @@ public class LoginTest extends BaseClass {
     public void validateAdminLogin()  {
         home = new HomePage(driver);
         home.clickLogin();
-
-        login = new Loginpage(driver);
-        login.enterUsername(properties.getProperty("login_admin_username"));
-        login.enterPassword(properties.getProperty("login_password"));
-        login.selectRole(role[1]);
-        login.clickLogin();
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(login.dashboard));
+        LoginUser(properties.getProperty("login_admin_username"),properties.getProperty("login_password"),role[1]);
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(Loginpage.dashboard));
         String dashboard = login.loginDashboard();
         Assert.assertEquals(properties.getProperty("adminDashboard"),dashboard);
 
@@ -58,13 +48,8 @@ public class LoginTest extends BaseClass {
     public void validateOrganizationLogin(){
         home = new HomePage(driver);
         home.clickLogin();
-
-        login = new Loginpage(driver);
-        login.enterUsername(properties.getProperty("login_org_username"));
-        login.enterPassword(properties.getProperty("login_password"));
-        login.selectRole(role[2]);
-        login.clickLogin();
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(login.dashboard));
+        LoginUser(properties.getProperty("login_org_username"),properties.getProperty("login_password"),role[2]);
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(Loginpage.dashboard));
         String dashboard = login.loginDashboard();
         Assert.assertEquals(properties.getProperty("organizationDashboard"),dashboard);
 
@@ -76,12 +61,7 @@ public class LoginTest extends BaseClass {
     public void inValidateEmployeeLogin() {
         home = new HomePage(driver);
         home.clickLogin();
-
-        login = new Loginpage(driver);
-        login.enterUsername(properties.getProperty("inValid_user_name"));
-        login.enterPassword(properties.getProperty("login_password"));
-        login.selectRole(role[0]);
-        login.clickLogin();
+        LoginUser(properties.getProperty("inValid_user_name"),properties.getProperty("login_password"),role[0]);
         String errorMessage = login.errorMessage();
         Assert.assertEquals(properties.getProperty("error"),errorMessage);
     }
@@ -89,14 +69,9 @@ public class LoginTest extends BaseClass {
     @Test(priority = 5)
     // Test to validate unsuccessful admin login
     public void inValidateAdminLogin() {
-
-        login = new Loginpage(driver);
         login.clearUsername();
         login.clearPassword();
-        login.enterUsername(properties.getProperty("inValid_user_name"));
-        login.enterPassword(properties.getProperty("login_password"));
-        login.selectRole(role[1]);
-        login.clickLogin();
+        LoginUser(properties.getProperty("inValid_user_name"),properties.getProperty("login_password"),role[1]);
         String errorMessage = login.errorMessage();
         Assert.assertEquals(properties.getProperty("error"),errorMessage);
     }
@@ -104,14 +79,9 @@ public class LoginTest extends BaseClass {
     @Test(priority = 6)
     // Test to validate unsuccessful organization login
     public void inValidateOrganizationLogin(){
-
-        login = new Loginpage(driver);
         login.clearUsername();
         login.clearPassword();
-        login.enterUsername(properties.getProperty("inValid_user_name"));
-        login.enterPassword(properties.getProperty("login_password"));
-        login.selectRole(role[2]);
-        login.clickLogin();
+        LoginUser(properties.getProperty("inValid_user_name"),properties.getProperty("login_password"),role[2]);
         String errorMessage = login.errorMessage();
         Assert.assertEquals(properties.getProperty("error"),errorMessage);
     }
@@ -120,13 +90,9 @@ public class LoginTest extends BaseClass {
     // Test to verify  error message by login as admin using employee credentials
     public void AdminLoginUsingEmployeeDetails()
     {
-        login = new Loginpage(driver);
         login.clearUsername();
         login.clearPassword();
-        login.enterUsername(properties.getProperty("login_emp_username"));
-        login.enterPassword(properties.getProperty("login_password"));
-        login.selectRole(role[1]);
-        login.clickLogin();
+        LoginUser(properties.getProperty("login_emp_username"),properties.getProperty("login_password"),role[1]);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         String errorMessage="";
         try{
@@ -134,5 +100,13 @@ public class LoginTest extends BaseClass {
         }catch (Exception e){
             Assert.assertEquals(properties.getProperty("error"),errorMessage);
         }
+    }
+
+    public void LoginUser(String Username, String Password, String Role){
+        login = new Loginpage(driver);
+        login.enterUsername(Username);
+        login.enterPassword(Password);
+        login.selectRole(Role);
+        login.clickLogin();
     }
 }

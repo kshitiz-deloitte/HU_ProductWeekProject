@@ -3,7 +3,6 @@ package Test;
 import PageObjects.HomePage;
 import PreRequisites.BaseClass;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 public class HomePageTest extends BaseClass{
@@ -11,7 +10,7 @@ public class HomePageTest extends BaseClass{
 
     @Test
     // Test to validate buttons functions in home page
-    public void validateHomeButtons() throws Exception
+    public void validateHomeButtons()
     {
         OpenDriver(properties.getProperty("url"));
         HomePage home = new HomePage(driver);
