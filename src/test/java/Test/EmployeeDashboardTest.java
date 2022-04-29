@@ -15,7 +15,7 @@ public class EmployeeDashboardTest extends BaseClass{
 
     //Login into Employee Dashboard with valid credentials
     @Test(priority = 1)
-    public void initialize() throws InterruptedException {
+    public void SetUp() throws InterruptedException {
         Thread.sleep(2000);
         OpenDriver(properties.getProperty("url"));
         homePage = new HomePage(driver);
